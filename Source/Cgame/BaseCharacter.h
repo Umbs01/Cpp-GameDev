@@ -6,13 +6,20 @@
 #include "GameFramework/Character.h"
 #include "BaseCharacter.generated.h"
 
-UCLASS()
-class CGAME_API ABaseCharacter : public ACharacter
+UCLASS(config=Game)
+class ABaseCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
-public:
+	// Top down camera
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class UCameraComponent* TopDownCameraComponent;
 
+	// Camera boom positioning the camera above the character
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class USpringArmComponent* CameraBoom;
+
+public:
 	// default constructor
 	ABaseCharacter();
 
@@ -23,18 +30,38 @@ public:
 	int damage;
 	int superRechargeProgress;
 
-	// setters for all the stats when spawned
-	virtual void setCharacterStats();
+	// Returns TopdownCameraComponent subobject 
+	FORCEINLINE class UCameraComponent* GetTopDownCameraComponent() const { return TopDownCameraComponent; }
+	// Returns CameraBoom subobject
+	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+
+	// testing
+	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+		float BaseTurnRate;
+
+	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+		float BaseLookUpRate;
 
 protected:
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	// Called for forwards/backward input
+	void MoveForward(float Value);
 
-	// Called to bind functionality to input
+	// called for side to side input
+	void MoveRight(float Value);
+
+protected:
+	// APawn inteface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+public:	
+
+	// setters for all the stats when spawned
+	virtual void setCharacterStats();
 
 };

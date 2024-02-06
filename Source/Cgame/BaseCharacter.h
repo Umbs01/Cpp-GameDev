@@ -18,7 +18,12 @@ public:
 	// Default Class constructor
 	ABaseCharacter();
 
+	// Called when init Character
 	virtual void setCharacterStats();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 protected:
 	// ingame character stats
@@ -28,5 +33,9 @@ protected:
 	int level;
 	int superRechargeProgress;
 	int speed;
+
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 
 };

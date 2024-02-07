@@ -15,24 +15,32 @@ class CGAME_API ABaseCharacter : public ACgameCharacter
 	GENERATED_BODY()
 
 public:
+	// Ingame Character Propeties
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CharStats")
+	int health;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CharStats")
+	int maxHealth;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CharStats")
+	int damage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CharStats")
+	int superRechargeProgress;
+
+public:
 	// Default Class constructor
 	ABaseCharacter();
 
 	// Called when init Character
 	virtual void setCharacterStats();
 
+
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-protected:
-	// ingame character stats
-	int health;
-	int maxHealth;
-	int damage;
-	int level;
-	int superRechargeProgress;
-	int speed;
 
 public:
 	// Called every frame

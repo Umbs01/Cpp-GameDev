@@ -39,7 +39,6 @@ void ABaseCharacter::setCharacterStats()
 	maxHealth = 3000;
 	health = maxHealth;
 	damage = 950;
-	level = 1;
-	speed = 50;
 	superRechargeProgress = 0;
+
 }

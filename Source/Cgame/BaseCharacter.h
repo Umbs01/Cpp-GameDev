@@ -5,9 +5,21 @@
 #include "CgameCharacter.h"
 #include "BaseCharacter.generated.h"
 
-/**
- * 
- */
+// Delegate for when stats based on integers are changed.
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FIntStatUpdated,
+	int32, OldValue,
+	int32, NewValue,
+	int32, MaxValue);
+
+// Delegate for when the player dies
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPlayerIsDead);
+
+// Delegate for when stats based on floats are changed.
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FFloatStatUpdated,
+	float, OldValue,
+	float, NewValue,
+	float, MaxValue);
+
 UCLASS()
 class CGAME_API ABaseCharacter : public ACgameCharacter
 {
@@ -35,6 +47,8 @@ public:
 	// Default Class constructor
 	ABaseCharacter();
 
+#pragma region Health
+
 	// Return the player's current health
 	UFUNCTION(BlueprintPure, Category = "Player|Health")
 	int GetHealth();
@@ -56,6 +70,18 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Player|Health")
 	void SetMaxHealth(int NewMaxHealth);
 
+	// Triggered when the player's health is updated.
+	UPROPERTY(BlueprintAssignable, Category = "Player|Health")
+	FIntStatUpdated OnHealthChanged;
+
+	// Triggered when the player dies.
+	UPROPERTY(BlueprintAssignable, Category = "Player|Health")
+	FPlayerIsDead OnPlayerDied;
+
+#pragma endregion
+
+#pragma region Super
+
 	// Return the player's current Super Recharge Progress
 	UFUNCTION(BlueprintPure, Category = "Player|Super")
 	float GetSuperProgress();
@@ -68,6 +94,14 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Player|Super")
 	void SetSuperRecuperationFactor(float NewRecupertaionFactor);
 
+	// Triggered when the player's stamina is updated.
+	UPROPERTY(BlueprintAssignable, Category = "Player|Super")
+	FFloatStatUpdated OnSuperChanged;
+
+#pragma endregion
+
+#pragma region Damage
+
 	// Return the player's current charges
 	UFUNCTION(BlueprintPure, Category = "Player|Damage")
 	float GetCurrentCharges();
@@ -75,6 +109,12 @@ public:
 	// player fire the weapon!
 	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
 	void Blast();
+
+	// Triggered when the players psi power is updated.
+	UPROPERTY(BlueprintAssignable, Category = "Player|PsiPower")
+	FFloatStatUpdated OnDamageChanged;
+
+#pragma endregion
 
 protected:
 	// Called when the game starts or when spawned

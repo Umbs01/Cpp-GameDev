@@ -53,16 +53,28 @@ int ABaseCharacter::GetMaxHealth()
 // -ve values are subtracted +ve are added
 void ABaseCharacter::UpdateHealth(int DeltaHealth)
 {
+	// Check if the player is dead
+	if (CurrentHealth >= 0.f) return;
+
+	// Assign the old health value
+	int OldValue = CurrentHealth;
+
 	CurrentHealth += DeltaHealth;
 
 	// Make sure that the updated CurrentHealth is in an acceptable range
 	// In this case it'll never be less than -1 or more than MaxHealth
 	CurrentHealth = FMath::Clamp(CurrentHealth, -1, MaxHealth);
 
+	// Compare the value before we changed it with the new value
+	if (CurrentHealth != OldValue)
+	{
+		OnHealthChanged.Broadcast(OldValue, CurrentHealth, MaxHealth);
+	}
+
 	// Check if the player is Dead
 	if (CurrentHealth <= 0.f)
 	{
-		// TODO: DO SOMETHING WHEN A PLAYER DIES
+		OnPlayerDied.Broadcast();
 	}
 
 }

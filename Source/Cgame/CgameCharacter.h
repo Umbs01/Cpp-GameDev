@@ -6,7 +6,7 @@
 #include "GameFramework/Character.h"
 #include "CgameCharacter.generated.h"
 
-UCLASS(config=Game)
+UCLASS(Abstract)
 class ACgameCharacter : public ACharacter
 {
 	GENERATED_BODY()

@@ -1,14 +1,15 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "Math/UnrealMathUtility.h"
 
 #include "BaseCharacter.h"
 
-//////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 // ABaseCharacter
 
 ABaseCharacter::ABaseCharacter()
 {
-	setCharacterStats();
+
 
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -33,12 +34,87 @@ void ABaseCharacter::Tick(float DeltaTime)
 
 }
 
-// setters for ingame character stats
-void ABaseCharacter::setCharacterStats()
-{
-	maxHealth = 3000;
-	health = maxHealth;
-	damage = 950;
-	superRechargeProgress = 0;
+//////////////////////////////////////////////////////////////////
+// Gameplay Mechanics
 
+// Return the player's current health
+int ABaseCharacter::GetHealth()
+{
+	return CurrentHealth;
+}
+
+// Return the player's max health
+int ABaseCharacter::GetMaxHealth()
+{
+	return MaxHealth;
+}
+
+// Modify the player's health by the specified amount
+// -ve values are subtracted +ve are added
+void ABaseCharacter::UpdateHealth(int DeltaHealth)
+{
+	CurrentHealth += DeltaHealth;
+
+	// Make sure that the updated CurrentHealth is in an acceptable range
+	// In this case it'll never be less than -1 or more than MaxHealth
+	CurrentHealth = FMath::Clamp(CurrentHealth, -1.f, MaxHealth);
+
+	// Check if the player is Dead
+	if (CurrentHealth <= 0.f)
+	{
+		// TODO: DO SOMETHING WHEN A PLAYER DIES
+	}
+
+}
+
+// Restore the player health
+void ABaseCharacter::RestoretoFullHealth()
+{
+	CurrentHealth = MaxHealth;
+}
+
+// Set the maximum player's allowable health
+void ABaseCharacter::SetMaxHealth(int NewMaxHealth)
+{
+	// will implement the range checking later
+	MaxHealth = NewMaxHealth;
+}
+
+// Return the player's current Super Recharge Progress
+float ABaseCharacter::GetSuperProgress()
+{
+	return SuperProgress;
+}
+
+// Return the player's recuperation factor
+float ABaseCharacter::GetSuperRecuperationFactor()
+{
+	return SuperRecuperationFactor;
+}
+
+// Set the player's recuperation factor
+void ABaseCharacter::SetSuperRecuperationFactor(float NewRecupertaionFactor)
+{
+	// will implement the range checking later
+	SuperRecuperationFactor = NewRecupertaionFactor;
+}
+
+// Return the player's current charges
+float ABaseCharacter::GetCurrentCharges()
+{
+	return CurrentCharges;
+}
+
+// player fire the weapon!
+void ABaseCharacter::Blast()
+{
+	// the cost to fire once is 1.0f
+	// check if we have anough charges before allowing the action to work
+	if (Charges >= 1.0f)
+	{
+		// Do the Busting
+
+		// Deduct the charge used
+		CurrentCharges -= 1;
+	}
 }

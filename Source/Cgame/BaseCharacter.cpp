@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Math/UnrealMathUtility.h"
-
+#include "GameFramework/CharacterMovementComponent.h"
 #include "BaseCharacter.h"
 
 ///////////////////////////////////////////////////////////////
@@ -57,7 +57,7 @@ void ABaseCharacter::UpdateHealth(int DeltaHealth)
 
 	// Make sure that the updated CurrentHealth is in an acceptable range
 	// In this case it'll never be less than -1 or more than MaxHealth
-	CurrentHealth = FMath::Clamp(CurrentHealth, -1.f, MaxHealth);
+	CurrentHealth = FMath::Clamp(CurrentHealth, -1, MaxHealth);
 
 	// Check if the player is Dead
 	if (CurrentHealth <= 0.f)

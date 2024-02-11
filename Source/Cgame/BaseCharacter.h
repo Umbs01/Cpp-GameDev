@@ -1,4 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -46,15 +45,15 @@ public:
 
 	// Modify the player's health by the specified amount
 	// -ve values are subtracted +ve are added
-	UFUNCTION(BlueprintPure, Category = "Player|Health")
+	UFUNCTION(BlueprintCallable, Category = "Player|Health")
 	void UpdateHealth(int DeltaHealth);
 
 	// Restore the player health
-	UFUNCTION(BlueprintPure, Category = "Player|Health")
+	UFUNCTION(BlueprintCallable, Category = "Player|Health")
 	void RestoretoFullHealth();
 
 	// Set the maximum player's allowable health
-	UFUNCTION(BlueprintPure, Category = "Player|Health")
+	UFUNCTION(BlueprintCallable, Category = "Player|Health")
 	void SetMaxHealth(int NewMaxHealth);
 
 	// Return the player's current Super Recharge Progress
@@ -66,7 +65,7 @@ public:
 	float GetSuperRecuperationFactor();
 
 	// Set the player's recuperation factor
-	UFUNCTION(BlueprintPure, Category = "Player|Super")
+	UFUNCTION(BlueprintCallable, Category = "Player|Super")
 	void SetSuperRecuperationFactor(float NewRecupertaionFactor);
 
 	// Return the player's current charges
@@ -74,7 +73,7 @@ public:
 	float GetCurrentCharges();
 
 	// player fire the weapon!
-	UFUNCTION(BlueprintPure, Category = "Player|Damage")
+	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
 	void Blast();
 
 protected:

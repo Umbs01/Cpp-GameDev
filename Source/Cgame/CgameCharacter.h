@@ -6,7 +6,7 @@
 #include "GameFramework/Character.h"
 #include "CgameCharacter.generated.h"
 
-UCLASS(config=Game)
+UCLASS(Abstract)
 class ACgameCharacter : public ACharacter
 {
 	GENERATED_BODY()
@@ -30,9 +30,6 @@ public:
 	float BaseLookUpRate;
 
 protected:
-
-	/** Resets HMD orientation in VR. */
-	void OnResetVR();
 
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);

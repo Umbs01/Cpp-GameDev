@@ -9,10 +9,10 @@
 
 ABaseCharacter::ABaseCharacter()
 {
-
-
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	SetActorTickInterval(0.5f);
+	SetActorTickEnabled(true);
 }
 
 // Called when the game starts or when spawned
@@ -21,17 +21,57 @@ void ABaseCharacter::BeginPlay()
 	Super::BeginPlay();
 	check(GEngine != nullptr);
 
-	// Display a debug message for five seconds. 
-	// The -1 "Key" value argument prevents the message from being updated or refreshed.
-	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("We are using BaseCharacter."));
-
 }
 
 // Called every frame
 void ABaseCharacter::Tick(float DeltaTime)
 {
+	// calls the Super bla bla bla
 	Super::Tick(DeltaTime);
 
+	// There are 2 things that can be restored over time, which are:
+	// 1) Charges for firing: max 3
+	// 2) Super: will gain after dealing damage to another player OR passively gain (Barbarian)
+
+#pragma region Update Super
+	// declare the constant super's gain rate
+	float ActualSuperRecuperationFactor = SuperRecuperationFactor;
+
+	if (CurrentSuperProgress != MaxSuperProgress)
+	{
+		// keep track of the value before it being changed
+		const float PreviousProgress = CurrentSuperProgress;
+
+		CurrentSuperProgress = FMath::Clamp(CurrentSuperProgress + SuperRecuperationFactor, 0.0f, MaxSuperProgress);
+		OnSuperChanged.Broadcast(PreviousProgress, CurrentSuperProgress, MaxSuperProgress);
+	}
+
+	// TODO: check if the player successfully deals damage to other player -> gains set amount of super charge
+
+#pragma endregion
+	
+#pragma region Update Charges
+	
+	if (CurrentCharges != Charges)
+	{
+		// keep track of the value before it being changed
+		const float PreviousCharges = CurrentCharges;
+
+		CurrentCharges = FMath::Clamp(CurrentCharges + ChargeRecuperationFactor, 0.0f, Charges);
+		OnChargeChanged.Broadcast(PreviousCharges, CurrentCharges, Charges);
+	}
+#pragma endregion
+
+	// Temporarily display debug information
+	GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Green,
+		*(FString::Printf(
+			TEXT("Health - Current:%d | Maximum:%d"), CurrentHealth, MaxHealth)));
+	GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Yellow,
+		*(FString::Printf(
+			TEXT("Super - Current:%f | Maximum:%f"), CurrentSuperProgress, MaxSuperProgress)));
+	GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Red,
+		*(FString::Printf(
+			TEXT("Ammo - Current:%f | Maximum:%f"), CurrentCharges, Charges)));
 }
 
 //////////////////////////////////////////////////////////////////
@@ -93,9 +133,15 @@ void ABaseCharacter::SetMaxHealth(int NewMaxHealth)
 }
 
 // Return the player's current Super Recharge Progress
-float ABaseCharacter::GetSuperProgress()
+float ABaseCharacter::GetCurrentSuperProgress()
 {
-	return SuperProgress;
+	return CurrentSuperProgress;
+}
+
+// Return the player's max Super
+float ABaseCharacter::GetMaxSuperProgress()
+{
+	return MaxSuperProgress;
 }
 
 // Return the player's recuperation factor
@@ -111,6 +157,25 @@ void ABaseCharacter::SetSuperRecuperationFactor(float NewRecupertaionFactor)
 	SuperRecuperationFactor = NewRecupertaionFactor;
 }
 
+// player unleashed their super attack!
+void ABaseCharacter::SuperMove()
+{
+	// The cost to use super is 1000.0f
+	// Once used the CurrentSuperProgress depletes
+	// Check if we have enough charges before allowing the action to work
+	if (CurrentSuperProgress >= MaxSuperProgress)
+	{
+		// Do the Busting
+		// Debugging
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Orange,
+			*(FString::Printf(
+				TEXT("BIGBOOOM"))));
+
+		// Depletes the meter once used
+		CurrentSuperProgress -= MaxSuperProgress;
+	}
+}
+
 // Return the player's current charges
 float ABaseCharacter::GetCurrentCharges()
 {
@@ -120,13 +185,17 @@ float ABaseCharacter::GetCurrentCharges()
 // player fire the weapon!
 void ABaseCharacter::Blast()
 {
-	// the cost to fire once is 1.0f
+	// the cost to fire once is 100.0f
 	// check if we have anough charges before allowing the action to work
-	if (Charges >= 1.0f)
+	if (CurrentCharges >= 100.0f)
 	{
 		// Do the Busting
+		// Debugging
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Blue,
+			*(FString::Printf(
+				TEXT("BOOOM"))));
 
 		// Deduct the charge used
-		CurrentCharges -= 1;
+		CurrentCharges -= 100.0f;
 	}
 }

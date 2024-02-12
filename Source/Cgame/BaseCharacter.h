@@ -34,13 +34,14 @@ private:
 
 	// Damage
 	static constexpr float Damage = 950.0f;
-	static constexpr float Charges = 3.0f;
+	static constexpr float Charges = 300.0f; // 300 -> 100 per shots for 3 maximum
 	float CurrentCharges = Charges;
-	float DamageRecuperationFactor = 1.0f; // Rate at which charges are recharged
+	float ChargeRecuperationFactor = 0.50f; // Rate at which charges are recharged
 
 	// Super
 	static constexpr float BaseSuperProgress = 0.0f;
-	float SuperProgress = BaseSuperProgress;
+	static constexpr float MaxSuperProgress = 1000.0f;
+	float CurrentSuperProgress = BaseSuperProgress;
 	float SuperRecuperationFactor = 1.0f; // Rate at which super is recharged
 
 public:
@@ -84,7 +85,11 @@ public:
 
 	// Return the player's current Super Recharge Progress
 	UFUNCTION(BlueprintPure, Category = "Player|Super")
-	float GetSuperProgress();
+	float GetCurrentSuperProgress();
+
+	// Return the player's max Super Progress
+	UFUNCTION(BlueprintPure, Category = "Player|Super")
+	float GetMaxSuperProgress();
 
 	// Return the player's recuperation factor
 	UFUNCTION(BlueprintPure, Category = "Player|Super")
@@ -93,6 +98,10 @@ public:
 	// Set the player's recuperation factor
 	UFUNCTION(BlueprintCallable, Category = "Player|Super")
 	void SetSuperRecuperationFactor(float NewRecupertaionFactor);
+
+	// player unleashed their super attack!
+	UFUNCTION(BlueprintCallable, Category = "Player|Super")
+	void SuperMove();
 
 	// Triggered when the player's stamina is updated.
 	UPROPERTY(BlueprintAssignable, Category = "Player|Super")
@@ -110,9 +119,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
 	void Blast();
 
-	// Triggered when the players psi power is updated.
-	UPROPERTY(BlueprintAssignable, Category = "Player|PsiPower")
-	FFloatStatUpdated OnDamageChanged;
+	// Triggered when the players charges is updated.
+	UPROPERTY(BlueprintAssignable, Category = "Player|Damage")
+	FFloatStatUpdated OnChargeChanged;
 
 #pragma endregion
 

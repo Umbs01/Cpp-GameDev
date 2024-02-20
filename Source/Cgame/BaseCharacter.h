@@ -30,7 +30,6 @@ private:
 	// Health
 	static constexpr int BaseHealth = 3000;
 	int	MaxHealth = BaseHealth;
-	int CurrentHealth = BaseHealth;
 
 	// Damage
 	static constexpr float Damage = 950.0f;
@@ -48,11 +47,18 @@ public:
 	// Default Class constructor
 	ABaseCharacter();
 
+	/** Property replication */
+	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 #pragma region Health
 
 	// Return the player's current health
 	UFUNCTION(BlueprintPure, Category = "Player|Health")
-	int GetHealth();
+	int GetCurrentHealth();
+
+	// Setter for Current Health. Clamps the value between 0 and MaxHealth and calls OnHealthUpdate. Should only be called on the server.
+	UFUNCTION(BlueprintCallable, Category = "Player|Health")
+	void SetCurrentHealth(int healthValue);
 
 	// Return the player's max health
 	UFUNCTION(BlueprintPure, Category = "Player|Health")
@@ -71,6 +77,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Player|Health")
 	void SetMaxHealth(int NewMaxHealth);
 
+	/** Event for taking damage. Overridden from APawn.*/
+	UFUNCTION(BlueprintCallable, Category = "Player|Health")
+	int TakeDamage(int DamageTaken, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser);
+
 	// Triggered when the player's health is updated.
 	UPROPERTY(BlueprintAssignable, Category = "Player|Health")
 	FIntStatUpdated OnHealthChanged;
@@ -78,6 +88,10 @@ public:
 	// Triggered when the player dies.
 	UPROPERTY(BlueprintAssignable, Category = "Player|Health")
 	FPlayerIsDead OnPlayerDied;
+	
+	// replicating function
+	UFUNCTION(BlueprintCallable, Category = "Player|Health")
+	void OnHealthUpdate();
 
 #pragma endregion
 
@@ -128,6 +142,10 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	// replicate current player health and can be replicated using OnHealthUpdate() function
+	UPROPERTY(ReplicatedUsing = OnHealthUpdate)
+	int CurrentHealth = BaseHealth;
 
 public:
 	// Called every frame

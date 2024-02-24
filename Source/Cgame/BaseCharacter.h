@@ -7,9 +7,9 @@
 
 // Delegate for when stats based on integers are changed.
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FIntStatUpdated,
-	int32, OldValue,
-	int32, NewValue,
-	int32, MaxValue);
+	float, OldValue,
+	float, NewValue,
+	float, MaxValue);
 
 // Delegate for when the player dies
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPlayerIsDead);
@@ -28,20 +28,20 @@ class CGAME_API ABaseCharacter : public ACgameCharacter
 private:
 	// Ingame Character Propeties
 	// Health
-	static constexpr int BaseHealth = 3000;
-	int	MaxHealth = BaseHealth;
+	static constexpr float BaseHealth = 3000.f;
+	float	MaxHealth = BaseHealth;
 
 	// Damage
 	static constexpr float Damage = 950.0f;
 	static constexpr float Charges = 300.0f; // 300 -> 100 per shots for 3 maximum
 	float CurrentCharges = Charges;
-	float ChargeRecuperationFactor = 0.50f; // Rate at which charges are recharged
+	float ChargeRecuperationFactor = 20.f; // Rate at which charges are recharged
 
 	// Super
 	static constexpr float BaseSuperProgress = 0.0f;
 	static constexpr float MaxSuperProgress = 1000.0f;
 	float CurrentSuperProgress = BaseSuperProgress;
-	float SuperRecuperationFactor = 1.0f; // Rate at which super is recharged
+	float SuperRecuperationFactor = 5.0f; // Rate at which super is recharged
 
 public:
 	// Default Class constructor
@@ -54,20 +54,20 @@ public:
 
 	// Return the player's current health
 	UFUNCTION(BlueprintPure, Category = "Player|Health")
-	int GetCurrentHealth();
+	float GetCurrentHealth();
 
 	// Setter for Current Health. Clamps the value between 0 and MaxHealth and calls OnHealthUpdate. Should only be called on the server.
 	UFUNCTION(BlueprintCallable, Category = "Player|Health")
-	void SetCurrentHealth(int healthValue);
+	void SetCurrentHealth(float healthValue);
 
 	// Return the player's max health
 	UFUNCTION(BlueprintPure, Category = "Player|Health")
-	int GetMaxHealth();
+	float GetMaxHealth();
 
 	// Modify the player's health by the specified amount
 	// -ve values are subtracted +ve are added
 	UFUNCTION(BlueprintCallable, Category = "Player|Health")
-	void UpdateHealth(int DeltaHealth);
+	void UpdateHealth(float DeltaHealth);
 
 	// Restore the player health
 	UFUNCTION(BlueprintCallable, Category = "Player|Health")
@@ -75,11 +75,11 @@ public:
 
 	// Set the maximum player's allowable health
 	UFUNCTION(BlueprintCallable, Category = "Player|Health")
-	void SetMaxHealth(int NewMaxHealth);
+	void SetMaxHealth(float NewMaxHealth);
 
 	/** Event for taking damage. Overridden from APawn.*/
 	UFUNCTION(BlueprintCallable, Category = "Player|Health")
-	int TakeDamage(int DamageTaken, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser);
+	float TakeDamage(float DamageTaken, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
 
 	// Triggered when the player's health is updated.
 	UPROPERTY(BlueprintAssignable, Category = "Player|Health")
@@ -145,7 +145,7 @@ protected:
 
 	// replicate current player health and can be replicated using OnHealthUpdate() function
 	UPROPERTY(ReplicatedUsing = OnHealthUpdate)
-	int CurrentHealth = BaseHealth;
+	float CurrentHealth = BaseHealth;
 
 public:
 	// Called every frame

@@ -77,7 +77,7 @@ void ABaseCharacter::Tick(float DeltaTime)
 
 	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Red,
 		*(FString::Printf(
-			TEXT("Health - Current:%d | Maximum:%d"), CurrentHealth, MaxHealth)));
+			TEXT("Health - Current:%f | Maximum:%f"), CurrentHealth, MaxHealth)));
 	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Green,
 		*(FString::Printf(
 			TEXT("Charges - Current:%f | Maximum:%f"), CurrentCharges, Charges)));

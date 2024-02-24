@@ -1,4 +1,4 @@
-﻿Log file open, 02/15/24 23:10:13
+﻿Log file open, 02/24/24 13:50:29
 LogWindows: Failed to load 'aqProf.dll' (GetLastError=126)
 LogWindows: File 'aqProf.dll' does not exist
 LogWindows: Failed to load 'VtuneApi.dll' (GetLastError=126)
@@ -9,15 +9,15 @@ LogConsoleResponse: Display: Failed to find resolution value strings in scalabil
 LogConsoleResponse: Display: Failed to find resolution value strings in scalability ini. Falling back to default.
 LogPakFile: Display: Found Pak file ../../../Cgame/Content/Paks/Cgame-WindowsServer.pak attempting to mount.
 LogPakFile: Display: Mounting pak file ../../../Cgame/Content/Paks/Cgame-WindowsServer.pak.
-LogPakFile: PakFile PrimaryIndexSize=25594
-LogPakFile: PakFile PathHashIndexSize=46464
-LogPakFile: PakFile FullDirectoryIndexSize=59799
+LogPakFile: PakFile PrimaryIndexSize=23614
+LogPakFile: PakFile PathHashIndexSize=45120
+LogPakFile: PakFile FullDirectoryIndexSize=56026
 LogShaderLibrary: Display: ShaderCodeLibraryPakFileMountedCallback: PakFile '../../../Cgame/Content/Paks/Cgame-WindowsServer.pak' (chunk index -1, root '../../../') mounted
 LogShaderLibrary: Display: ShaderCodeLibraryPakFileMountedCallback: pending pak file info (ChunkID:-1 Root:../../../ File:../../../Cgame/Content/Paks/Cgame-WindowsServer.pak)
-LogPakFile: OnPakFileMounted2Time == 0.000221
+LogPakFile: OnPakFileMounted2Time == 0.000633
 LogPlatformFile: Not using cached read wrapper
 LogTaskGraph: Started task graph with 5 named threads and 9 total threads with 1 sets of task threads.
-LogStats: Stats thread started at 0.108571
+LogStats: Stats thread started at 0.147431
 LogICUInternationalization: ICU TimeZone Detection - Raw Offset: +7:00, Platform Override: ''
 LogInit: Display: Loading text-based GConfig....
 LogPluginManager: Mounting plugin EnhancedInput
@@ -132,7 +132,7 @@ LogInit: Engine Version: 4.27.2-0+++UE4+Release-4.27
 LogInit: Compatible Engine Version: 4.27.0-0+++UE4+Release-4.27
 LogInit: Net CL: 0
 LogInit: OS: Windows 10 (Release 2009) (), CPU: AMD Ryzen 5 5600 6-Core Processor              , GPU: NVIDIA GeForce RTX 4060
-LogInit: Compiled (64-bit): Feb 15 2024 22:10:59
+LogInit: Compiled (64-bit): Feb 22 2024 23:04:07
 LogInit: Compiled with Visual C++: 19.29.30154.00
 LogInit: Build Configuration: Development
 LogInit: Branch Name: ++UE4+Release-4.27
@@ -191,471 +191,465 @@ LogInit: Object subsystem initialized
 LogConfig: Setting CVar [[con.DebugEarlyDefault:1]]
 LogConfig: Setting CVar [[r.setres:1280x720]]
 LogConfig: Setting CVar [[fx.NiagaraAllowRuntimeScalabilityChanges:1]]
-[2024.02.15-16.10.14:084][  0]LogConfig: Setting CVar [[con.DebugEarlyDefault:1]]
-[2024.02.15-16.10.14:084][  0]LogConfig: Setting CVar [[r.setres:1280x720]]
-[2024.02.15-16.10.14:085][  0]LogConfig: Setting CVar [[fx.NiagaraAllowRuntimeScalabilityChanges:1]]
-[2024.02.15-16.10.14:085][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererSettings] File [../../../Cgame/Saved/Config/WindowsServer/Engine.ini]
-[2024.02.15-16.10.14:086][  0]LogConfig: Setting CVar [[r.GPUCrashDebugging:0]]
-[2024.02.15-16.10.14:086][  0]LogConfig: Setting CVar [[r.Mobile.DisableVertexFog:1]]
-[2024.02.15-16.10.14:086][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxMobileCascades:2]]
-[2024.02.15-16.10.14:087][  0]LogConfig: Setting CVar [[r.MobileMSAA:1]]
-[2024.02.15-16.10.14:087][  0]LogConfig: Setting CVar [[r.Mobile.AllowDitheredLODTransition:0]]
-[2024.02.15-16.10.14:087][  0]LogConfig: Setting CVar [[r.Mobile.AllowSoftwareOcclusion:0]]
-[2024.02.15-16.10.14:088][  0]LogConfig: Setting CVar [[r.Mobile.VirtualTextures:0]]
-[2024.02.15-16.10.14:088][  0]LogConfig: Setting CVar [[r.DiscardUnusedQuality:0]]
-[2024.02.15-16.10.14:089][  0]LogConfig: Setting CVar [[r.AllowOcclusionQueries:1]]
-[2024.02.15-16.10.14:091][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForLights:0.030000]]
-[2024.02.15-16.10.14:091][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForDepthPrepass:0.030000]]
-[2024.02.15-16.10.14:091][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForCSMDepth:0.010000]]
-[2024.02.15-16.10.14:092][  0]LogConfig: Setting CVar [[r.PrecomputedVisibilityWarning:0]]
-[2024.02.15-16.10.14:092][  0]LogConfig: Setting CVar [[r.TextureStreaming:1]]
-[2024.02.15-16.10.14:093][  0]LogConfig: Setting CVar [[Compat.UseDXT5NormalMaps:0]]
-[2024.02.15-16.10.14:093][  0]LogConfig: Setting CVar [[r.VirtualTextures:0]]
-[2024.02.15-16.10.14:094][  0]LogConfig: Setting CVar [[r.VT.EnableAutoImport:1]]
-[2024.02.15-16.10.14:094][  0]LogConfig: Setting CVar [[r.VirtualTexturedLightmaps:0]]
-[2024.02.15-16.10.14:094][  0]LogConfig: Setting CVar [[r.VT.TileSize:128]]
-[2024.02.15-16.10.14:095][  0]LogConfig: Setting CVar [[r.VT.TileBorderSize:4]]
-[2024.02.15-16.10.14:095][  0]LogConfig: Setting CVar [[r.vt.FeedbackFactor:16]]
-[2024.02.15-16.10.14:096][  0]LogConfig: Setting CVar [[r.VT.EnableCompressZlib:1]]
-[2024.02.15-16.10.14:096][  0]LogConfig: Setting CVar [[r.VT.EnableCompressCrunch:0]]
-[2024.02.15-16.10.14:096][  0]LogConfig: Setting CVar [[r.ClearCoatNormal:0]]
-[2024.02.15-16.10.14:097][  0]LogConfig: Setting CVar [[r.ReflectionCaptureResolution:128]]
-[2024.02.15-16.10.14:097][  0]LogConfig: Setting CVar [[r.Mobile.ReflectionCaptureCompression:0]]
-[2024.02.15-16.10.14:097][  0]LogConfig: Setting CVar [[r.ReflectionEnvironmentLightmapMixBasedOnRoughness:1]]
-[2024.02.15-16.10.14:098][  0]LogConfig: Setting CVar [[r.ForwardShading:0]]
-[2024.02.15-16.10.14:098][  0]LogConfig: Setting CVar [[r.VertexFoggingForOpaque:1]]
-[2024.02.15-16.10.14:099][  0]LogConfig: Setting CVar [[r.AllowStaticLighting:1]]
-[2024.02.15-16.10.14:099][  0]LogConfig: Setting CVar [[r.NormalMapsForStaticLighting:0]]
-[2024.02.15-16.10.14:102][  0]LogConfig: Setting CVar [[r.GenerateMeshDistanceFields:0]]
-[2024.02.15-16.10.14:103][  0]LogConfig: Setting CVar [[r.DistanceFieldBuild.EightBit:0]]
-[2024.02.15-16.10.14:103][  0]LogConfig: Setting CVar [[r.GenerateLandscapeGIData:0]]
-[2024.02.15-16.10.14:103][  0]LogConfig: Setting CVar [[r.DistanceFieldBuild.Compress:0]]
-[2024.02.15-16.10.14:104][  0]LogConfig: Setting CVar [[r.TessellationAdaptivePixelsPerTriangle:48.000000]]
-[2024.02.15-16.10.14:104][  0]LogConfig: Setting CVar [[r.SeparateTranslucency:1]]
-[2024.02.15-16.10.14:105][  0]LogConfig: Setting CVar [[r.TranslucentSortPolicy:0]]
-[2024.02.15-16.10.14:107][  0]LogConfig: Setting CVar [[vr.VRS.HMDFixedFoveationLevel:0]]
-[2024.02.15-16.10.14:107][  0]LogConfig: Setting CVar [[r.CustomDepth:1]]
-[2024.02.15-16.10.14:108][  0]LogConfig: Setting CVar [[r.CustomDepthTemporalAAJitter:1]]
-[2024.02.15-16.10.14:108][  0]LogConfig: Setting CVar [[r.PostProcessing.PropagateAlpha:0]]
-[2024.02.15-16.10.14:109][  0]LogConfig: Setting CVar [[r.DefaultFeature.Bloom:1]]
-[2024.02.15-16.10.14:109][  0]LogConfig: Setting CVar [[r.DefaultFeature.AmbientOcclusion:1]]
-[2024.02.15-16.10.14:110][  0]LogConfig: Setting CVar [[r.DefaultFeature.AmbientOcclusionStaticFraction:1]]
-[2024.02.15-16.10.14:110][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure:0]]
-[2024.02.15-16.10.14:111][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure.Method:0]]
-[2024.02.15-16.10.14:111][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure.Bias:1.000000]]
-[2024.02.15-16.10.14:111][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure.ExtendDefaultLuminanceRange:0]]
-[2024.02.15-16.10.14:112][  0]LogConfig: Setting CVar [[r.UsePreExposure:1]]
-[2024.02.15-16.10.14:112][  0]LogConfig: Setting CVar [[r.EyeAdaptation.EditorOnly:0]]
-[2024.02.15-16.10.14:113][  0]LogConfig: Setting CVar [[r.DefaultFeature.MotionBlur:0]]
-[2024.02.15-16.10.14:113][  0]LogConfig: Setting CVar [[r.DefaultFeature.LensFlare:0]]
-[2024.02.15-16.10.14:113][  0]LogConfig: Setting CVar [[r.TemporalAA.Upsampling:0]]
-[2024.02.15-16.10.14:114][  0]LogConfig: Setting CVar [[r.SSGI.Enable:0]]
-[2024.02.15-16.10.14:114][  0]LogConfig: Setting CVar [[r.DefaultFeature.AntiAliasing:0]]
-[2024.02.15-16.10.14:115][  0]LogConfig: Setting CVar [[r.DefaultFeature.LightUnits:1]]
-[2024.02.15-16.10.14:115][  0]LogConfig: Setting CVar [[r.DefaultBackBufferPixelFormat:4]]
-[2024.02.15-16.10.14:115][  0]LogConfig: Setting CVar [[r.Shadow.UnbuiltPreviewInGame:1]]
-[2024.02.15-16.10.14:116][  0]LogConfig: Setting CVar [[r.StencilForLODDither:0]]
-[2024.02.15-16.10.14:116][  0]LogConfig: Setting CVar [[r.EarlyZPass:3]]
-[2024.02.15-16.10.14:117][  0]LogConfig: Setting CVar [[r.EarlyZPassOnlyMaterialMasking:0]]
-[2024.02.15-16.10.14:117][  0]LogConfig: Setting CVar [[r.DBuffer:1]]
-[2024.02.15-16.10.14:117][  0]LogConfig: Setting CVar [[r.ClearSceneMethod:1]]
-[2024.02.15-16.10.14:118][  0]LogConfig: Setting CVar [[r.BasePassOutputsVelocity:0]]
-[2024.02.15-16.10.14:118][  0]LogConfig: Setting CVar [[r.VertexDeformationOutputsVelocity:0]]
-[2024.02.15-16.10.14:118][  0]LogConfig: Setting CVar [[r.SelectiveBasePassOutputs:0]]
-[2024.02.15-16.10.14:119][  0]LogConfig: Setting CVar [[fx.GPUSimulationTextureSizeX:1024]]
-[2024.02.15-16.10.14:119][  0]LogConfig: Setting CVar [[fx.GPUSimulationTextureSizeY:1024]]
-[2024.02.15-16.10.14:119][  0]LogConfig: Setting CVar [[r.AllowGlobalClipPlane:0]]
-[2024.02.15-16.10.14:120][  0]LogConfig: Setting CVar [[r.GBufferFormat:1]]
-[2024.02.15-16.10.14:133][  0]LogConfig: Setting CVar [[r.MorphTarget.Mode:1]]
-[2024.02.15-16.10.14:135][  0]LogConfig: Setting CVar [[vr.InstancedStereo:0]]
-[2024.02.15-16.10.14:135][  0]LogConfig: Setting CVar [[r.MobileHDR:1]]
-[2024.02.15-16.10.14:136][  0]LogConfig: Setting CVar [[vr.MobileMultiView:0]]
-[2024.02.15-16.10.14:136][  0]LogConfig: Setting CVar [[r.Mobile.UseHWsRGBEncoding:0]]
-[2024.02.15-16.10.14:136][  0]LogConfig: Setting CVar [[vr.RoundRobinOcclusion:0]]
-[2024.02.15-16.10.14:137][  0]LogConfig: Setting CVar [[vr.ODSCapture:0]]
-[2024.02.15-16.10.14:137][  0]LogConfig: Setting CVar [[r.MeshStreaming:0]]
-[2024.02.15-16.10.14:138][  0]LogConfig: Setting CVar [[r.WireframeCullThreshold:5.000000]]
-[2024.02.15-16.10.14:138][  0]LogConfig: Setting CVar [[r.RayTracing:0]]
-[2024.02.15-16.10.14:138][  0]LogConfig: Setting CVar [[r.RayTracing.UseTextureLod:0]]
-[2024.02.15-16.10.14:139][  0]LogConfig: Setting CVar [[r.SupportStationarySkylight:1]]
-[2024.02.15-16.10.14:139][  0]LogConfig: Setting CVar [[r.SupportLowQualityLightmaps:1]]
-[2024.02.15-16.10.14:140][  0]LogConfig: Setting CVar [[r.SupportPointLightWholeSceneShadows:1]]
-[2024.02.15-16.10.14:140][  0]LogConfig: Setting CVar [[r.SupportAtmosphericFog:1]]
-[2024.02.15-16.10.14:140][  0]LogConfig: Setting CVar [[r.SupportSkyAtmosphere:1]]
-[2024.02.15-16.10.14:141][  0]LogConfig: Setting CVar [[r.SupportSkyAtmosphereAffectsHeightFog:0]]
-[2024.02.15-16.10.14:141][  0]LogConfig: Setting CVar [[r.SkinCache.CompileShaders:0]]
-[2024.02.15-16.10.14:141][  0]LogConfig: Setting CVar [[r.SkinCache.DefaultBehavior:1]]
-[2024.02.15-16.10.14:142][  0]LogConfig: Setting CVar [[r.SkinCache.SceneMemoryLimitInMB:128.000000]]
-[2024.02.15-16.10.14:142][  0]LogConfig: Setting CVar [[r.Mobile.EnableStaticAndCSMShadowReceivers:1]]
-[2024.02.15-16.10.14:143][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableLightCSMShaderCulling:1]]
-[2024.02.15-16.10.14:143][  0]LogConfig: Setting CVar [[r.Mobile.AllowDistanceFieldShadows:1]]
-[2024.02.15-16.10.14:143][  0]LogConfig: Setting CVar [[r.Mobile.AllowMovableDirectionalLights:1]]
-[2024.02.15-16.10.14:144][  0]LogConfig: Setting CVar [[r.MobileNumDynamicPointLights:4]]
-[2024.02.15-16.10.14:144][  0]LogConfig: Setting CVar [[r.MobileDynamicPointLightsUseStaticBranch:1]]
-[2024.02.15-16.10.14:144][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableSpotlights:0]]
-[2024.02.15-16.10.14:145][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableSpotlightsShadow:0]]
-[2024.02.15-16.10.14:145][  0]LogConfig: Setting CVar [[r.GPUSkin.Support16BitBoneIndex:0]]
-[2024.02.15-16.10.14:146][  0]LogConfig: Setting CVar [[r.GPUSkin.Limit2BoneInfluences:0]]
-[2024.02.15-16.10.14:146][  0]LogConfig: Setting CVar [[r.SupportDepthOnlyIndexBuffers:1]]
-[2024.02.15-16.10.14:146][  0]LogConfig: Setting CVar [[r.SupportReversedIndexBuffers:1]]
-[2024.02.15-16.10.14:147][  0]LogConfig: Setting CVar [[r.LightPropagationVolume:0]]
-[2024.02.15-16.10.14:148][  0]LogConfig: Setting CVar [[r.Mobile.AmbientOcclusion:0]]
-[2024.02.15-16.10.14:148][  0]LogConfig: Setting CVar [[r.GPUSkin.UnlimitedBoneInfluences:0]]
-[2024.02.15-16.10.14:148][  0]LogConfig: Setting CVar [[r.GPUSkin.UnlimitedBoneInfluencesThreshold:8]]
-[2024.02.15-16.10.14:149][  0]LogConfig: Setting CVar [[r.Mobile.PlanarReflectionMode:0]]
-[2024.02.15-16.10.14:149][  0]LogConfig: Setting CVar [[r.Mobile.SupportsGen4TAA:0]]
-[2024.02.15-16.10.14:149][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererOverrideSettings] File [../../../Cgame/Saved/Config/WindowsServer/Engine.ini]
-[2024.02.15-16.10.14:155][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [../../../Cgame/Saved/Config/WindowsServer/Engine.ini]
-[2024.02.15-16.10.14:157][  0]LogConfig: Setting CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
-[2024.02.15-16.10.14:158][  0]LogConfig: Setting CVar [[s.AsyncLoadingThreadEnabled:0]]
-[2024.02.15-16.10.14:159][  0]LogConfig: Setting CVar [[s.EventDrivenLoaderEnabled:1]]
-[2024.02.15-16.10.14:159][  0]LogConfig: Setting CVar [[s.WarnIfTimeLimitExceeded:0]]
-[2024.02.15-16.10.14:160][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMultiplier:1.5]]
-[2024.02.15-16.10.14:160][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMinTime:0.005]]
-[2024.02.15-16.10.14:160][  0]LogConfig: Setting CVar [[s.UseBackgroundLevelStreaming:1]]
-[2024.02.15-16.10.14:161][  0]LogConfig: Setting CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
-[2024.02.15-16.10.14:161][  0]LogConfig: Setting CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
-[2024.02.15-16.10.14:162][  0]LogConfig: Setting CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
-[2024.02.15-16.10.14:162][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
-[2024.02.15-16.10.14:162][  0]LogConfig: Setting CVar [[s.UnregisterComponentsTimeLimit:1.0]]
-[2024.02.15-16.10.14:163][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
-[2024.02.15-16.10.14:163][  0]LogConfig: Setting CVar [[s.FlushStreamingOnExit:1]]
-[2024.02.15-16.10.14:164][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.GarbageCollectionSettings] File [../../../Cgame/Saved/Config/WindowsServer/Engine.ini]
-[2024.02.15-16.10.14:164][  0]LogConfig: Setting CVar [[gc.MaxObjectsNotConsideredByGC:1]]
-[2024.02.15-16.10.14:164][  0]LogConfig: Setting CVar [[gc.SizeOfPermanentObjectPool:0]]
-[2024.02.15-16.10.14:165][  0]LogConfig: Setting CVar [[gc.FlushStreamingOnGC:0]]
-[2024.02.15-16.10.14:165][  0]LogConfig: Setting CVar [[gc.NumRetriesBeforeForcingGC:10]]
-[2024.02.15-16.10.14:166][  0]LogConfig: Setting CVar [[gc.AllowParallelGC:1]]
-[2024.02.15-16.10.14:166][  0]LogConfig: Setting CVar [[gc.TimeBetweenPurgingPendingKillObjects:61.1]]
-[2024.02.15-16.10.14:166][  0]LogConfig: Setting CVar [[gc.MaxObjectsInEditor:25165824]]
-[2024.02.15-16.10.14:167][  0]LogConfig: Setting CVar [[gc.IncrementalBeginDestroyEnabled:1]]
-[2024.02.15-16.10.14:167][  0]LogConfig: Setting CVar [[gc.CreateGCClusters:1]]
-[2024.02.15-16.10.14:168][  0]LogConfig: Setting CVar [[gc.MinGCClusterSize:5]]
-[2024.02.15-16.10.14:169][  0]LogConfig: Setting CVar [[gc.ActorClusteringEnabled:0]]
-[2024.02.15-16.10.14:170][  0]LogConfig: Setting CVar [[gc.BlueprintClusteringEnabled:0]]
-[2024.02.15-16.10.14:170][  0]LogConfig: Setting CVar [[gc.UseDisregardForGCOnDedicatedServers:0]]
-[2024.02.15-16.10.14:171][  0]LogConfig: Setting CVar [[gc.MultithreadedDestructionEnabled:1]]
-[2024.02.15-16.10.14:171][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.NetworkSettings] File [../../../Cgame/Saved/Config/WindowsServer/Engine.ini]
-[2024.02.15-16.10.14:172][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:172][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
-[2024.02.15-16.10.14:172][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
-[2024.02.15-16.10.14:173][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:173][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
-[2024.02.15-16.10.14:174][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:174][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
-[2024.02.15-16.10.14:174][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
-[2024.02.15-16.10.14:175][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
-[2024.02.15-16.10.14:175][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
-[2024.02.15-16.10.14:175][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
-[2024.02.15-16.10.14:176][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
-[2024.02.15-16.10.14:176][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
-[2024.02.15-16.10.14:177][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
-[2024.02.15-16.10.14:177][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
-[2024.02.15-16.10.14:177][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
-[2024.02.15-16.10.14:178][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
-[2024.02.15-16.10.14:178][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
-[2024.02.15-16.10.14:178][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
-[2024.02.15-16.10.14:178][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
-[2024.02.15-16.10.14:180][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
-[2024.02.15-16.10.14:180][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
-[2024.02.15-16.10.14:181][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
-[2024.02.15-16.10.14:181][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
-[2024.02.15-16.10.14:181][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:182][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
-[2024.02.15-16.10.14:182][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
-[2024.02.15-16.10.14:182][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
-[2024.02.15-16.10.14:183][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
-[2024.02.15-16.10.14:183][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
-[2024.02.15-16.10.14:184][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
-[2024.02.15-16.10.14:186][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
-[2024.02.15-16.10.14:186][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
-[2024.02.15-16.10.14:187][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
-[2024.02.15-16.10.14:199][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
-[2024.02.15-16.10.14:201][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
-[2024.02.15-16.10.14:201][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
-[2024.02.15-16.10.14:202][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
-[2024.02.15-16.10.14:202][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
-[2024.02.15-16.10.14:202][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
-[2024.02.15-16.10.14:203][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
-[2024.02.15-16.10.14:203][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
-[2024.02.15-16.10.14:204][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
-[2024.02.15-16.10.14:204][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
-[2024.02.15-16.10.14:204][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
-[2024.02.15-16.10.14:205][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
-[2024.02.15-16.10.14:205][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
-[2024.02.15-16.10.14:205][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
-[2024.02.15-16.10.14:206][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
-[2024.02.15-16.10.14:206][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
-[2024.02.15-16.10.14:207][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
-[2024.02.15-16.10.14:207][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
-[2024.02.15-16.10.14:207][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
-[2024.02.15-16.10.14:208][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
-[2024.02.15-16.10.14:208][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
-[2024.02.15-16.10.14:209][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:209][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
-[2024.02.15-16.10.14:209][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
-[2024.02.15-16.10.14:210][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
-[2024.02.15-16.10.14:210][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
-[2024.02.15-16.10.14:210][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
-[2024.02.15-16.10.14:211][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
-[2024.02.15-16.10.14:211][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
-[2024.02.15-16.10.14:211][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
-[2024.02.15-16.10.14:212][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
-[2024.02.15-16.10.14:212][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:213][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
-[2024.02.15-16.10.14:214][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
-[2024.02.15-16.10.14:214][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
-[2024.02.15-16.10.14:214][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
-[2024.02.15-16.10.14:215][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
-[2024.02.15-16.10.14:223][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
-[2024.02.15-16.10.14:223][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
-[2024.02.15-16.10.14:223][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
-[2024.02.15-16.10.14:224][  0]LogConfig: Setting CVar [[r.AnisotropicMaterials:1]]
-[2024.02.15-16.10.14:224][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
-[2024.02.15-16.10.14:225][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
-[2024.02.15-16.10.14:225][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
-[2024.02.15-16.10.14:225][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
-[2024.02.15-16.10.14:226][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
-[2024.02.15-16.10.14:226][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
-[2024.02.15-16.10.14:227][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
-[2024.02.15-16.10.14:227][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
-[2024.02.15-16.10.14:228][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:4]]
-[2024.02.15-16.10.14:229][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
-[2024.02.15-16.10.14:229][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
-[2024.02.15-16.10.14:229][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
-[2024.02.15-16.10.14:229][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:128.0]]
-[2024.02.15-16.10.14:230][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
-[2024.02.15-16.10.14:230][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
-[2024.02.15-16.10.14:231][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
-[2024.02.15-16.10.14:232][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
-[2024.02.15-16.10.14:232][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
-[2024.02.15-16.10.14:233][  0]LogConfig: Setting CVar [[r.SkyLight.RealTimeReflectionCapture:1]]
-[2024.02.15-16.10.14:233][  0]LogConfig: Setting CVar [[fx.Niagara.QualityLevel:3]]
-[2024.02.15-16.10.14:234][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:234][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
-[2024.02.15-16.10.14:234][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
-[2024.02.15-16.10.14:235][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:235][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
-[2024.02.15-16.10.14:235][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:4]]
-[2024.02.15-16.10.14:236][  0]LogConfig: Setting CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
-[2024.02.15-16.10.14:236][  0]LogInit: Selected Device Profile: [WindowsServer]
-[2024.02.15-16.10.14:236][  0]LogInit: Applying CVar settings loaded from the selected device profile: [WindowsServer]
-[2024.02.15-16.10.14:237][  0]LogHAL: Display: Platform has ~ 16 GB [17102323712 / 17179869184 / 16], which maps to Larger [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
-[2024.02.15-16.10.14:237][  0]LogInit: Going up to parent DeviceProfile [Windows]
-[2024.02.15-16.10.14:238][  0]LogInit: Going up to parent DeviceProfile []
-[2024.02.15-16.10.14:238][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:238][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
-[2024.02.15-16.10.14:239][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
-[2024.02.15-16.10.14:250][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:251][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
-[2024.02.15-16.10.14:253][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:253][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
-[2024.02.15-16.10.14:254][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
-[2024.02.15-16.10.14:254][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
-[2024.02.15-16.10.14:255][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
-[2024.02.15-16.10.14:255][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
-[2024.02.15-16.10.14:255][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
-[2024.02.15-16.10.14:256][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
-[2024.02.15-16.10.14:256][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
-[2024.02.15-16.10.14:256][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
-[2024.02.15-16.10.14:257][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
-[2024.02.15-16.10.14:257][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
-[2024.02.15-16.10.14:258][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
-[2024.02.15-16.10.14:258][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
-[2024.02.15-16.10.14:258][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
-[2024.02.15-16.10.14:259][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
-[2024.02.15-16.10.14:259][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
-[2024.02.15-16.10.14:259][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
-[2024.02.15-16.10.14:259][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
-[2024.02.15-16.10.14:260][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:261][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
-[2024.02.15-16.10.14:261][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
-[2024.02.15-16.10.14:261][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
-[2024.02.15-16.10.14:262][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
-[2024.02.15-16.10.14:267][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
-[2024.02.15-16.10.14:267][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
-[2024.02.15-16.10.14:267][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
-[2024.02.15-16.10.14:268][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
-[2024.02.15-16.10.14:268][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
-[2024.02.15-16.10.14:268][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
-[2024.02.15-16.10.14:269][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
-[2024.02.15-16.10.14:269][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
-[2024.02.15-16.10.14:270][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
-[2024.02.15-16.10.14:270][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
-[2024.02.15-16.10.14:270][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
-[2024.02.15-16.10.14:271][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
-[2024.02.15-16.10.14:271][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
-[2024.02.15-16.10.14:271][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
-[2024.02.15-16.10.14:272][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
-[2024.02.15-16.10.14:272][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
-[2024.02.15-16.10.14:273][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
-[2024.02.15-16.10.14:273][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
-[2024.02.15-16.10.14:273][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
-[2024.02.15-16.10.14:274][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
-[2024.02.15-16.10.14:274][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
-[2024.02.15-16.10.14:275][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
-[2024.02.15-16.10.14:275][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
-[2024.02.15-16.10.14:275][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
-[2024.02.15-16.10.14:276][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
-[2024.02.15-16.10.14:276][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
-[2024.02.15-16.10.14:276][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:277][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
-[2024.02.15-16.10.14:279][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
-[2024.02.15-16.10.14:279][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
-[2024.02.15-16.10.14:279][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
-[2024.02.15-16.10.14:280][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
-[2024.02.15-16.10.14:280][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
-[2024.02.15-16.10.14:280][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
-[2024.02.15-16.10.14:282][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
-[2024.02.15-16.10.14:282][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
-[2024.02.15-16.10.14:282][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:283][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
-[2024.02.15-16.10.14:283][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
-[2024.02.15-16.10.14:288][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
-[2024.02.15-16.10.14:288][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
-[2024.02.15-16.10.14:289][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
-[2024.02.15-16.10.14:289][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
-[2024.02.15-16.10.14:289][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
-[2024.02.15-16.10.14:289][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
-[2024.02.15-16.10.14:290][  0]LogConfig: Setting CVar [[r.AnisotropicMaterials:1]]
-[2024.02.15-16.10.14:290][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
-[2024.02.15-16.10.14:291][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
-[2024.02.15-16.10.14:291][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
-[2024.02.15-16.10.14:291][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
-[2024.02.15-16.10.14:292][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
-[2024.02.15-16.10.14:292][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
-[2024.02.15-16.10.14:293][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
-[2024.02.15-16.10.14:295][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
-[2024.02.15-16.10.14:295][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:4]]
-[2024.02.15-16.10.14:295][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
-[2024.02.15-16.10.14:296][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
-[2024.02.15-16.10.14:296][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
-[2024.02.15-16.10.14:296][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:128.0]]
-[2024.02.15-16.10.14:297][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
-[2024.02.15-16.10.14:297][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
-[2024.02.15-16.10.14:297][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
-[2024.02.15-16.10.14:298][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
-[2024.02.15-16.10.14:298][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
-[2024.02.15-16.10.14:299][  0]LogConfig: Setting CVar [[r.SkyLight.RealTimeReflectionCapture:1]]
-[2024.02.15-16.10.14:299][  0]LogConfig: Setting CVar [[fx.Niagara.QualityLevel:3]]
-[2024.02.15-16.10.14:300][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:300][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
-[2024.02.15-16.10.14:300][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
-[2024.02.15-16.10.14:301][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
-[2024.02.15-16.10.14:301][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
-[2024.02.15-16.10.14:301][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:4]]
-[2024.02.15-16.10.14:302][  0]LogConfig: Setting CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
-[2024.02.15-16.10.14:302][  0]LogConfig: Applying CVar settings from Section [Startup] File [../../../Engine/Config/ConsoleVariables.ini]
-[2024.02.15-16.10.14:303][  0]LogConfig: Setting CVar [[net.UseAdaptiveNetUpdateFrequency:0]]
-[2024.02.15-16.10.14:303][  0]LogConfig: Setting CVar [[p.chaos.AllowCreatePhysxBodies:1]]
-[2024.02.15-16.10.14:303][  0]LogConfig: Setting CVar [[fx.SkipVectorVMBackendOptimizations:1]]
-[2024.02.15-16.10.14:304][  0]LogConfig: Applying CVar settings from Section [ConsoleVariables] File [../../../Cgame/Saved/Config/WindowsServer/Engine.ini]
-[2024.02.15-16.10.14:304][  0]LogInit: Computer: BATTLESTATION
-[2024.02.15-16.10.14:305][  0]LogInit: User: NoU
-[2024.02.15-16.10.14:305][  0]LogInit: CPU Page size=4096, Cores=6
-[2024.02.15-16.10.14:305][  0]LogInit: High frequency timer resolution =10.000000 MHz
-[2024.02.15-16.10.14:306][  0]LogMemory: Memory total: Physical=15.9GB (16GB approx)
-[2024.02.15-16.10.14:306][  0]LogMemory: Platform Memory Stats for WindowsServer
-[2024.02.15-16.10.14:307][  0]LogMemory: Process Physical Memory: 76.61 MB used, 76.61 MB peak
-[2024.02.15-16.10.14:307][  0]LogMemory: Process Virtual Memory: 75.61 MB used, 75.61 MB peak
-[2024.02.15-16.10.14:308][  0]LogMemory: Physical Memory: 7427.34 MB used,  8882.71 MB free, 16310.05 MB total
-[2024.02.15-16.10.14:308][  0]LogMemory: Virtual Memory: 134210616.00 MB used,  7110.39 MB free, 134217728.00 MB total
-[2024.02.15-16.10.14:314][  0]LogWindows: WindowsPlatformFeatures disabled or dedicated server build
-[2024.02.15-16.10.14:487][  0]LogInit: Physics initialised using underlying interface: PhysX
-[2024.02.15-16.10.14:487][  0]LogInit: Using OS detected language (en-US).
-[2024.02.15-16.10.14:487][  0]LogInit: Using OS detected locale (en-US).
-[2024.02.15-16.10.14:489][  0]LogTextLocalizationManager: No specific localization for 'en-US' exists, so the 'en' localization will be used.
-[2024.02.15-16.10.14:515][  0]LogRendererCore: Ray tracing is disabled. Reason: r.RayTracing=0.
-[2024.02.15-16.10.14:516][  0]LogODSC: ODSC Thread active.
-[2024.02.15-16.10.14:523][  0]LogInit: Using OS detected language (en-US).
-[2024.02.15-16.10.14:524][  0]LogInit: Using OS detected locale (en-US).
-[2024.02.15-16.10.14:524][  0]LogTextLocalizationManager: No localization for 'en-US' exists, so 'en' will be used for the language.
-[2024.02.15-16.10.14:525][  0]LogTextLocalizationManager: No localization for 'en-US' exists, so 'en' will be used for the locale.
-[2024.02.15-16.10.14:526][  0]LogTextLocalizationManager: Compacting localization data took   0.80ms
-[2024.02.15-16.10.14:527][  0]LogAssetRegistry: FAssetRegistry took 0.0012 seconds to start up
-[2024.02.15-16.10.14:618][  0]LogStreaming: Display: FlushAsyncLoading: 1 QueuedPackages, 0 AsyncPackages
-[2024.02.15-16.10.14:619][  0]LogPackageLocalizationCache: Processed 26 localized package path(s) for 1 prioritized culture(s) in 0.000184 seconds
-[2024.02.15-16.10.14:619][  0]LogPakFile: New pak file ../../../Cgame/Content/Paks/Cgame-WindowsServer.pak added to pak precacher.
-[2024.02.15-16.10.14:620][  0]LogInit: Selected Device Profile: [WindowsServer]
-[2024.02.15-16.10.14:622][  0]LogInit: Active device profile: [00000225F248F580][00000225ED719250 49] WindowsServer
-[2024.02.15-16.10.14:622][  0]LogInit: Profiles: [00000225F248F700][00000225F0FC6DC0 49] Windows, [00000225F248F580][00000225ED719250 49] WindowsServer, 
-[2024.02.15-16.10.14:634][  0]LogSerialization: Display: AllowBulkDataInIoStore: 'true'
-[2024.02.15-16.10.14:642][  0]LogNetVersion: Cgame 1.0.0, NetCL: 0, EngineNetVer: 17, GameNetVer: 0 (Checksum: 804825050)
-[2024.02.15-16.10.14:684][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
-[2024.02.15-16.10.14:684][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
-[2024.02.15-16.10.14:685][  0]LogHMD: PokeAHoleMaterial loaded successfully
-[2024.02.15-16.10.14:720][  0]LogUObjectArray: 16009 objects as part of root set at end of initial load.
-[2024.02.15-16.10.14:721][  0]LogUObjectAllocator: 3289128 out of 0 bytes used by permanent object pool.
-[2024.02.15-16.10.14:721][  0]LogUObjectArray: CloseDisregardForGC: 16009/0 objects in disregard for GC pool
-[2024.02.15-16.10.14:743][  0]LogNiagaraDebuggerClient: Niagara Debugger Client Initialized | Session: D13DCBFB4146DA2B9B2AFF841BA5D306 | Instance: 04F64DB640D18162609DE8A7375FC04B (BATTLESTATION-18828).
-[2024.02.15-16.10.14:745][  0]LogAndroidPermission: UAndroidPermissionCallbackProxy::GetInstance
-[2024.02.15-16.10.14:746][  0]LogOcInput: OculusInput pre-init called
-[2024.02.15-16.10.14:747][  0]LogEngine: Initializing Engine...
-[2024.02.15-16.10.14:748][  0]LogStats: UGameplayTagsManager::InitializeManager -  0.000 s
-[2024.02.15-16.10.14:753][  0]LogInit: Initializing FReadOnlyCVARCache
-[2024.02.15-16.10.14:753][  0]LogNetVersion: Set ProjectVersion to 1.0.0.0. Version Checksum will be recalculated on next use.
-[2024.02.15-16.10.14:754][  0]LogInit: Texture streaming: Disabled
-[2024.02.15-16.10.14:765][  0]LogInit: Display: Game Engine Initialized.
-[2024.02.15-16.10.14:765][  0]LogInit: Display: Starting Game.
-[2024.02.15-16.10.14:766][  0]LogNet: Browse: /Game/Maps/TestChamber?Name=Player
-[2024.02.15-16.10.14:766][  0]LogLoad: LoadMap: /Game/Maps/TestChamber?Name=Player
-[2024.02.15-16.10.14:766][  0]LogWorld: BeginTearingDown for /Temp/Untitled_0
-[2024.02.15-16.10.14:770][  0]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
-[2024.02.15-16.10.14:772][  0]LogUObjectHash: Compacting FUObjectHashTables data took   0.56ms
-[2024.02.15-16.10.14:777][  0]LogAIModule: Creating AISystem for world TestChamber
-[2024.02.15-16.10.14:778][  0]LogLoad: Game class is 'CgameGameMode'
-[2024.02.15-16.10.14:778][  0]LogNet: ReplicationDriverClass is null! Not using ReplicationDriver.
-[2024.02.15-16.10.14:779][  0]LogNetCore: DDoS detection status: detection enabled: 0 analytics enabled: 0
-[2024.02.15-16.10.14:780][  0]LogInit: WinSock: Socket queue. Rx: 131072 (config 131072) Tx: 131072 (config 131072)
-[2024.02.15-16.10.14:780][  0]LogNet: Created socket for bind address: 0.0.0.0 on port 7777
-[2024.02.15-16.10.14:781][  0]PacketHandlerLog: Loaded PacketHandler component: Engine.EngineHandlerComponentFactory (StatelessConnectHandlerComponent)
-[2024.02.15-16.10.14:781][  0]LogNet: GameNetDriver IpNetDriver_2147482565 IpNetDriver listening on port 7777
-[2024.02.15-16.10.14:783][  0]LogWorld: Bringing World /Game/Maps/TestChamber.TestChamber up for play (max tick rate 30) at 2024.02.15-23.10.14
-[2024.02.15-16.10.14:783][  0]LogWorld: Bringing up level for play took: 0.001000
-[2024.02.15-16.10.14:783][  0]LogLoad: Took 0.017343 seconds to LoadMap(/Game/Maps/TestChamber)
-[2024.02.15-16.10.14:784][  0]LogPakFile: AllPaks IndexSizes: DirectoryHashSize=210264, PathHashSize=16, EntriesSize=32752, TotalSize=243032
-[2024.02.15-16.10.14:784][  0]LogInit: Display: Engine is initialized. Leaving FEngineLoop::Init()
-[2024.02.15-16.10.14:784][  0]LogLoad: (Engine Initialization) Total time: 1.16 seconds
-[2024.02.15-16.10.55:595][996]LogNet: NotifyAcceptingConnection accepted from: 127.0.0.1:59846
-[2024.02.15-16.10.55:595][996]LogHandshake: SendConnectChallenge. Timestamp: 40.810211, Cookie: 037210093118193201060079115043156228102134237210185111176148
-[2024.02.15-16.10.55:642][997]LogNet: NotifyAcceptingConnection accepted from: 127.0.0.1:59846
-[2024.02.15-16.10.55:642][997]LogHandshake: SendChallengeAck. InCookie: 037210093118193201060079115043156228102134237210185111176148
-[2024.02.15-16.10.55:642][997]LogNet: Server accepting post-challenge connection from: 127.0.0.1:59846
-[2024.02.15-16.10.55:643][997]PacketHandlerLog: Loaded PacketHandler component: Engine.EngineHandlerComponentFactory (StatelessConnectHandlerComponent)
-[2024.02.15-16.10.55:643][997]LogNet: NotifyAcceptedConnection: Name: TestChamber, TimeStamp: 02/15/24 23:10:55, [UNetConnection] RemoteAddr: 127.0.0.1:59846, Name: IpConnection_2147482558, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: NULL, Owner: NULL, UniqueId: INVALID
-[2024.02.15-16.10.55:644][997]LogNet: AddClientConnection: Added client connection: [UNetConnection] RemoteAddr: 127.0.0.1:59846, Name: IpConnection_2147482558, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: NULL, Owner: NULL, UniqueId: INVALID
-[2024.02.15-16.10.55:644][997]LogNet: NotifyAcceptingChannel Control 0 server World /Game/Maps/TestChamber.TestChamber: Accepted
-[2024.02.15-16.10.55:645][997]LogNet: Remote platform little endian=1
-[2024.02.15-16.10.55:645][997]LogNet: This platform little endian=1
-[2024.02.15-16.10.55:646][997]LogNetVersion: Cgame 1.0.0.0, NetCL: 0, EngineNetVer: 17, GameNetVer: 0 (Checksum: 198000864)
-[2024.02.15-16.10.55:688][998]LogNet: Login request: ?Name=BattleStation-BC005FA3489A0A8CD71D818EFBF7BECD userId: NULL:BattleStation-BC005FA3489A0A8CD71D818EFBF7BECD platform: NULL
-[2024.02.15-16.10.55:781][  0]LogNet: Client netspeed is 100000
-[2024.02.15-16.10.55:781][  0]LogNet: Join request: /Game/Maps/TestChamber?Name=BattleStation-BC005FA3489A0A8CD71D818EFBF7BECD?SplitscreenCount=1
-[2024.02.15-16.10.55:783][  0]LogOnlineSession: Warning: OSS: No game present to join for session (GameSession)
-[2024.02.15-16.10.55:791][  0]LogNet: Join succeeded: BattleStation-BC005F
-[2024.02.15-16.11.25:808][706]LogNet: NotifyAcceptingConnection accepted from: 127.0.0.1:59849
-[2024.02.15-16.11.25:808][706]LogHandshake: SendConnectChallenge. Timestamp: 71.022856, Cookie: 104059038092115252190242116067232095204231090228176013247181
-[2024.02.15-16.11.25:856][707]LogNet: NotifyAcceptingConnection accepted from: 127.0.0.1:59849
-[2024.02.15-16.11.25:856][707]LogHandshake: SendChallengeAck. InCookie: 104059038092115252190242116067232095204231090228176013247181
-[2024.02.15-16.11.25:857][707]LogNet: Server accepting post-challenge connection from: 127.0.0.1:59849
-[2024.02.15-16.11.25:857][707]PacketHandlerLog: Loaded PacketHandler component: Engine.EngineHandlerComponentFactory (StatelessConnectHandlerComponent)
-[2024.02.15-16.11.25:858][707]LogNet: NotifyAcceptedConnection: Name: TestChamber, TimeStamp: 02/15/24 23:11:25, [UNetConnection] RemoteAddr: 127.0.0.1:59849, Name: IpConnection_2147482530, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: NULL, Owner: NULL, UniqueId: INVALID
-[2024.02.15-16.11.25:858][707]LogNet: AddClientConnection: Added client connection: [UNetConnection] RemoteAddr: 127.0.0.1:59849, Name: IpConnection_2147482530, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: NULL, Owner: NULL, UniqueId: INVALID
-[2024.02.15-16.11.25:904][708]LogNet: NotifyAcceptingChannel Control 0 server World /Game/Maps/TestChamber.TestChamber: Accepted
-[2024.02.15-16.11.25:904][708]LogNet: Remote platform little endian=1
-[2024.02.15-16.11.25:904][708]LogNet: This platform little endian=1
-[2024.02.15-16.11.25:951][709]LogNet: Login request: ?Name=BattleStation-36DF0FB94E033435AE101488B5B4D494 userId: NULL:BattleStation-36DF0FB94E033435AE101488B5B4D494 platform: NULL
-[2024.02.15-16.11.26:045][711]LogNet: Client netspeed is 100000
-[2024.02.15-16.11.26:045][711]LogNet: Join request: /Game/Maps/TestChamber?Name=BattleStation-36DF0FB94E033435AE101488B5B4D494?SplitscreenCount=1
-[2024.02.15-16.11.26:046][711]LogOnlineSession: Warning: OSS: No game present to join for session (GameSession)
-[2024.02.15-16.11.26:047][711]LogNet: Join succeeded: BattleStation-36DF0F
-[2024.02.15-16.11.49:164][204]LogNet: UChannel::ReceivedSequencedBunch: Bunch.bClose == true. ChIndex == 0. Calling ConditionalCleanUp.
-[2024.02.15-16.11.49:164][204]LogNet: UChannel::CleanUp: ChIndex == 0. Closing connection. [UChannel] ChIndex: 0, Closing: 0 [UNetConnection] RemoteAddr: 127.0.0.1:59849, Name: IpConnection_2147482530, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: PlayerController_2147482526, Owner: PlayerController_2147482526, UniqueId: NULL:BattleStation-36DF0FB94E033435AE101488B5B4D494
-[2024.02.15-16.11.49:165][204]LogNet: UNetConnection::Close: [UNetConnection] RemoteAddr: 127.0.0.1:59849, Name: IpConnection_2147482530, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: PlayerController_2147482526, Owner: PlayerController_2147482526, UniqueId: NULL:BattleStation-36DF0FB94E033435AE101488B5B4D494, Channels: 11, Time: 2024.02.15-16.11.49
-[2024.02.15-16.11.49:165][204]LogNet: UChannel::Close: Sending CloseBunch. ChIndex == 0. Name: [UChannel] ChIndex: 0, Closing: 0 [UNetConnection] RemoteAddr: 127.0.0.1:59849, Name: IpConnection_2147482530, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: PlayerController_2147482526, Owner: PlayerController_2147482526, UniqueId: NULL:BattleStation-36DF0FB94E033435AE101488B5B4D494
-[2024.02.15-16.11.49:167][204]LogOnlineSession: Warning: OSS: No game present to leave for session (GameSession)
-[2024.02.15-16.11.50:195][226]LogNet: UChannel::ReceivedSequencedBunch: Bunch.bClose == true. ChIndex == 0. Calling ConditionalCleanUp.
-[2024.02.15-16.11.50:195][226]LogNet: UChannel::CleanUp: ChIndex == 0. Closing connection. [UChannel] ChIndex: 0, Closing: 0 [UNetConnection] RemoteAddr: 127.0.0.1:59846, Name: IpConnection_2147482558, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: PlayerController_2147482554, Owner: PlayerController_2147482554, UniqueId: NULL:BattleStation-BC005FA3489A0A8CD71D818EFBF7BECD
-[2024.02.15-16.11.50:195][226]LogNet: UNetConnection::Close: [UNetConnection] RemoteAddr: 127.0.0.1:59846, Name: IpConnection_2147482558, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: PlayerController_2147482554, Owner: PlayerController_2147482554, UniqueId: NULL:BattleStation-BC005FA3489A0A8CD71D818EFBF7BECD, Channels: 9, Time: 2024.02.15-16.11.50
-[2024.02.15-16.11.50:196][226]LogNet: UChannel::Close: Sending CloseBunch. ChIndex == 0. Name: [UChannel] ChIndex: 0, Closing: 0 [UNetConnection] RemoteAddr: 127.0.0.1:59846, Name: IpConnection_2147482558, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: PlayerController_2147482554, Owner: PlayerController_2147482554, UniqueId: NULL:BattleStation-BC005FA3489A0A8CD71D818EFBF7BECD
-[2024.02.15-16.11.50:197][226]LogOnlineSession: Warning: OSS: No game present to leave for session (GameSession)
+[2024.02.24-06.50.29:646][  0]LogConfig: Setting CVar [[con.DebugEarlyDefault:1]]
+[2024.02.24-06.50.29:646][  0]LogConfig: Setting CVar [[r.setres:1280x720]]
+[2024.02.24-06.50.29:647][  0]LogConfig: Setting CVar [[fx.NiagaraAllowRuntimeScalabilityChanges:1]]
+[2024.02.24-06.50.29:647][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererSettings] File [../../../Cgame/Saved/Config/WindowsServer/Engine.ini]
+[2024.02.24-06.50.29:648][  0]LogConfig: Setting CVar [[r.GPUCrashDebugging:0]]
+[2024.02.24-06.50.29:648][  0]LogConfig: Setting CVar [[r.Mobile.DisableVertexFog:1]]
+[2024.02.24-06.50.29:648][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxMobileCascades:2]]
+[2024.02.24-06.50.29:649][  0]LogConfig: Setting CVar [[r.MobileMSAA:1]]
+[2024.02.24-06.50.29:649][  0]LogConfig: Setting CVar [[r.Mobile.AllowDitheredLODTransition:0]]
+[2024.02.24-06.50.29:649][  0]LogConfig: Setting CVar [[r.Mobile.AllowSoftwareOcclusion:0]]
+[2024.02.24-06.50.29:650][  0]LogConfig: Setting CVar [[r.Mobile.VirtualTextures:0]]
+[2024.02.24-06.50.29:650][  0]LogConfig: Setting CVar [[r.DiscardUnusedQuality:0]]
+[2024.02.24-06.50.29:651][  0]LogConfig: Setting CVar [[r.AllowOcclusionQueries:1]]
+[2024.02.24-06.50.29:651][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForLights:0.030000]]
+[2024.02.24-06.50.29:651][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForDepthPrepass:0.030000]]
+[2024.02.24-06.50.29:653][  0]LogConfig: Setting CVar [[r.MinScreenRadiusForCSMDepth:0.010000]]
+[2024.02.24-06.50.29:653][  0]LogConfig: Setting CVar [[r.PrecomputedVisibilityWarning:0]]
+[2024.02.24-06.50.29:653][  0]LogConfig: Setting CVar [[r.TextureStreaming:1]]
+[2024.02.24-06.50.29:654][  0]LogConfig: Setting CVar [[Compat.UseDXT5NormalMaps:0]]
+[2024.02.24-06.50.29:654][  0]LogConfig: Setting CVar [[r.VirtualTextures:0]]
+[2024.02.24-06.50.29:655][  0]LogConfig: Setting CVar [[r.VT.EnableAutoImport:1]]
+[2024.02.24-06.50.29:655][  0]LogConfig: Setting CVar [[r.VirtualTexturedLightmaps:0]]
+[2024.02.24-06.50.29:655][  0]LogConfig: Setting CVar [[r.VT.TileSize:128]]
+[2024.02.24-06.50.29:656][  0]LogConfig: Setting CVar [[r.VT.TileBorderSize:4]]
+[2024.02.24-06.50.29:656][  0]LogConfig: Setting CVar [[r.vt.FeedbackFactor:16]]
+[2024.02.24-06.50.29:656][  0]LogConfig: Setting CVar [[r.VT.EnableCompressZlib:1]]
+[2024.02.24-06.50.29:657][  0]LogConfig: Setting CVar [[r.VT.EnableCompressCrunch:0]]
+[2024.02.24-06.50.29:659][  0]LogConfig: Setting CVar [[r.ClearCoatNormal:0]]
+[2024.02.24-06.50.29:659][  0]LogConfig: Setting CVar [[r.ReflectionCaptureResolution:128]]
+[2024.02.24-06.50.29:660][  0]LogConfig: Setting CVar [[r.Mobile.ReflectionCaptureCompression:0]]
+[2024.02.24-06.50.29:660][  0]LogConfig: Setting CVar [[r.ReflectionEnvironmentLightmapMixBasedOnRoughness:1]]
+[2024.02.24-06.50.29:660][  0]LogConfig: Setting CVar [[r.ForwardShading:0]]
+[2024.02.24-06.50.29:661][  0]LogConfig: Setting CVar [[r.VertexFoggingForOpaque:1]]
+[2024.02.24-06.50.29:661][  0]LogConfig: Setting CVar [[r.AllowStaticLighting:1]]
+[2024.02.24-06.50.29:661][  0]LogConfig: Setting CVar [[r.NormalMapsForStaticLighting:0]]
+[2024.02.24-06.50.29:662][  0]LogConfig: Setting CVar [[r.GenerateMeshDistanceFields:0]]
+[2024.02.24-06.50.29:662][  0]LogConfig: Setting CVar [[r.DistanceFieldBuild.EightBit:0]]
+[2024.02.24-06.50.29:662][  0]LogConfig: Setting CVar [[r.GenerateLandscapeGIData:0]]
+[2024.02.24-06.50.29:663][  0]LogConfig: Setting CVar [[r.DistanceFieldBuild.Compress:0]]
+[2024.02.24-06.50.29:663][  0]LogConfig: Setting CVar [[r.TessellationAdaptivePixelsPerTriangle:48.000000]]
+[2024.02.24-06.50.29:663][  0]LogConfig: Setting CVar [[r.SeparateTranslucency:1]]
+[2024.02.24-06.50.29:664][  0]LogConfig: Setting CVar [[r.TranslucentSortPolicy:0]]
+[2024.02.24-06.50.29:664][  0]LogConfig: Setting CVar [[vr.VRS.HMDFixedFoveationLevel:0]]
+[2024.02.24-06.50.29:664][  0]LogConfig: Setting CVar [[r.CustomDepth:1]]
+[2024.02.24-06.50.29:666][  0]LogConfig: Setting CVar [[r.CustomDepthTemporalAAJitter:1]]
+[2024.02.24-06.50.29:666][  0]LogConfig: Setting CVar [[r.PostProcessing.PropagateAlpha:0]]
+[2024.02.24-06.50.29:666][  0]LogConfig: Setting CVar [[r.DefaultFeature.Bloom:1]]
+[2024.02.24-06.50.29:667][  0]LogConfig: Setting CVar [[r.DefaultFeature.AmbientOcclusion:1]]
+[2024.02.24-06.50.29:667][  0]LogConfig: Setting CVar [[r.DefaultFeature.AmbientOcclusionStaticFraction:1]]
+[2024.02.24-06.50.29:668][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure:0]]
+[2024.02.24-06.50.29:668][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure.Method:0]]
+[2024.02.24-06.50.29:668][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure.Bias:1.000000]]
+[2024.02.24-06.50.29:669][  0]LogConfig: Setting CVar [[r.DefaultFeature.AutoExposure.ExtendDefaultLuminanceRange:0]]
+[2024.02.24-06.50.29:669][  0]LogConfig: Setting CVar [[r.UsePreExposure:1]]
+[2024.02.24-06.50.29:669][  0]LogConfig: Setting CVar [[r.EyeAdaptation.EditorOnly:0]]
+[2024.02.24-06.50.29:670][  0]LogConfig: Setting CVar [[r.DefaultFeature.MotionBlur:0]]
+[2024.02.24-06.50.29:670][  0]LogConfig: Setting CVar [[r.DefaultFeature.LensFlare:0]]
+[2024.02.24-06.50.29:670][  0]LogConfig: Setting CVar [[r.TemporalAA.Upsampling:0]]
+[2024.02.24-06.50.29:670][  0]LogConfig: Setting CVar [[r.SSGI.Enable:0]]
+[2024.02.24-06.50.29:671][  0]LogConfig: Setting CVar [[r.DefaultFeature.AntiAliasing:0]]
+[2024.02.24-06.50.29:673][  0]LogConfig: Setting CVar [[r.DefaultFeature.LightUnits:1]]
+[2024.02.24-06.50.29:673][  0]LogConfig: Setting CVar [[r.DefaultBackBufferPixelFormat:4]]
+[2024.02.24-06.50.29:674][  0]LogConfig: Setting CVar [[r.Shadow.UnbuiltPreviewInGame:1]]
+[2024.02.24-06.50.29:674][  0]LogConfig: Setting CVar [[r.StencilForLODDither:0]]
+[2024.02.24-06.50.29:674][  0]LogConfig: Setting CVar [[r.EarlyZPass:3]]
+[2024.02.24-06.50.29:675][  0]LogConfig: Setting CVar [[r.EarlyZPassOnlyMaterialMasking:0]]
+[2024.02.24-06.50.29:675][  0]LogConfig: Setting CVar [[r.DBuffer:1]]
+[2024.02.24-06.50.29:676][  0]LogConfig: Setting CVar [[r.ClearSceneMethod:1]]
+[2024.02.24-06.50.29:676][  0]LogConfig: Setting CVar [[r.BasePassOutputsVelocity:0]]
+[2024.02.24-06.50.29:676][  0]LogConfig: Setting CVar [[r.VertexDeformationOutputsVelocity:0]]
+[2024.02.24-06.50.29:677][  0]LogConfig: Setting CVar [[r.SelectiveBasePassOutputs:0]]
+[2024.02.24-06.50.29:677][  0]LogConfig: Setting CVar [[fx.GPUSimulationTextureSizeX:1024]]
+[2024.02.24-06.50.29:678][  0]LogConfig: Setting CVar [[fx.GPUSimulationTextureSizeY:1024]]
+[2024.02.24-06.50.29:678][  0]LogConfig: Setting CVar [[r.AllowGlobalClipPlane:0]]
+[2024.02.24-06.50.29:678][  0]LogConfig: Setting CVar [[r.GBufferFormat:1]]
+[2024.02.24-06.50.29:679][  0]LogConfig: Setting CVar [[r.MorphTarget.Mode:1]]
+[2024.02.24-06.50.29:679][  0]LogConfig: Setting CVar [[vr.InstancedStereo:0]]
+[2024.02.24-06.50.29:679][  0]LogConfig: Setting CVar [[r.MobileHDR:1]]
+[2024.02.24-06.50.29:681][  0]LogConfig: Setting CVar [[vr.MobileMultiView:0]]
+[2024.02.24-06.50.29:681][  0]LogConfig: Setting CVar [[r.Mobile.UseHWsRGBEncoding:0]]
+[2024.02.24-06.50.29:681][  0]LogConfig: Setting CVar [[vr.RoundRobinOcclusion:0]]
+[2024.02.24-06.50.29:683][  0]LogConfig: Setting CVar [[vr.ODSCapture:0]]
+[2024.02.24-06.50.29:683][  0]LogConfig: Setting CVar [[r.MeshStreaming:0]]
+[2024.02.24-06.50.29:683][  0]LogConfig: Setting CVar [[r.WireframeCullThreshold:5.000000]]
+[2024.02.24-06.50.29:684][  0]LogConfig: Setting CVar [[r.RayTracing:0]]
+[2024.02.24-06.50.29:684][  0]LogConfig: Setting CVar [[r.RayTracing.UseTextureLod:0]]
+[2024.02.24-06.50.29:685][  0]LogConfig: Setting CVar [[r.SupportStationarySkylight:1]]
+[2024.02.24-06.50.29:685][  0]LogConfig: Setting CVar [[r.SupportLowQualityLightmaps:1]]
+[2024.02.24-06.50.29:686][  0]LogConfig: Setting CVar [[r.SupportPointLightWholeSceneShadows:1]]
+[2024.02.24-06.50.29:686][  0]LogConfig: Setting CVar [[r.SupportAtmosphericFog:1]]
+[2024.02.24-06.50.29:686][  0]LogConfig: Setting CVar [[r.SupportSkyAtmosphere:1]]
+[2024.02.24-06.50.29:687][  0]LogConfig: Setting CVar [[r.SupportSkyAtmosphereAffectsHeightFog:0]]
+[2024.02.24-06.50.29:688][  0]LogConfig: Setting CVar [[r.SkinCache.CompileShaders:0]]
+[2024.02.24-06.50.29:689][  0]LogConfig: Setting CVar [[r.SkinCache.DefaultBehavior:1]]
+[2024.02.24-06.50.29:689][  0]LogConfig: Setting CVar [[r.SkinCache.SceneMemoryLimitInMB:128.000000]]
+[2024.02.24-06.50.29:689][  0]LogConfig: Setting CVar [[r.Mobile.EnableStaticAndCSMShadowReceivers:1]]
+[2024.02.24-06.50.29:690][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableLightCSMShaderCulling:1]]
+[2024.02.24-06.50.29:690][  0]LogConfig: Setting CVar [[r.Mobile.AllowDistanceFieldShadows:1]]
+[2024.02.24-06.50.29:691][  0]LogConfig: Setting CVar [[r.Mobile.AllowMovableDirectionalLights:1]]
+[2024.02.24-06.50.29:691][  0]LogConfig: Setting CVar [[r.MobileNumDynamicPointLights:4]]
+[2024.02.24-06.50.29:691][  0]LogConfig: Setting CVar [[r.MobileDynamicPointLightsUseStaticBranch:1]]
+[2024.02.24-06.50.29:692][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableSpotlights:0]]
+[2024.02.24-06.50.29:692][  0]LogConfig: Setting CVar [[r.Mobile.EnableMovableSpotlightsShadow:0]]
+[2024.02.24-06.50.29:692][  0]LogConfig: Setting CVar [[r.GPUSkin.Support16BitBoneIndex:0]]
+[2024.02.24-06.50.29:693][  0]LogConfig: Setting CVar [[r.GPUSkin.Limit2BoneInfluences:0]]
+[2024.02.24-06.50.29:693][  0]LogConfig: Setting CVar [[r.SupportDepthOnlyIndexBuffers:1]]
+[2024.02.24-06.50.29:693][  0]LogConfig: Setting CVar [[r.SupportReversedIndexBuffers:1]]
+[2024.02.24-06.50.29:694][  0]LogConfig: Setting CVar [[r.LightPropagationVolume:0]]
+[2024.02.24-06.50.29:695][  0]LogConfig: Setting CVar [[r.Mobile.AmbientOcclusion:0]]
+[2024.02.24-06.50.29:695][  0]LogConfig: Setting CVar [[r.GPUSkin.UnlimitedBoneInfluences:0]]
+[2024.02.24-06.50.29:696][  0]LogConfig: Setting CVar [[r.GPUSkin.UnlimitedBoneInfluencesThreshold:8]]
+[2024.02.24-06.50.29:696][  0]LogConfig: Setting CVar [[r.Mobile.PlanarReflectionMode:0]]
+[2024.02.24-06.50.29:696][  0]LogConfig: Setting CVar [[r.Mobile.SupportsGen4TAA:0]]
+[2024.02.24-06.50.29:697][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.RendererOverrideSettings] File [../../../Cgame/Saved/Config/WindowsServer/Engine.ini]
+[2024.02.24-06.50.29:697][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.StreamingSettings] File [../../../Cgame/Saved/Config/WindowsServer/Engine.ini]
+[2024.02.24-06.50.29:697][  0]LogConfig: Setting CVar [[s.MinBulkDataSizeForAsyncLoading:131072]]
+[2024.02.24-06.50.29:698][  0]LogConfig: Setting CVar [[s.AsyncLoadingThreadEnabled:0]]
+[2024.02.24-06.50.29:698][  0]LogConfig: Setting CVar [[s.EventDrivenLoaderEnabled:1]]
+[2024.02.24-06.50.29:699][  0]LogConfig: Setting CVar [[s.WarnIfTimeLimitExceeded:0]]
+[2024.02.24-06.50.29:699][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMultiplier:1.5]]
+[2024.02.24-06.50.29:700][  0]LogConfig: Setting CVar [[s.TimeLimitExceededMinTime:0.005]]
+[2024.02.24-06.50.29:700][  0]LogConfig: Setting CVar [[s.UseBackgroundLevelStreaming:1]]
+[2024.02.24-06.50.29:700][  0]LogConfig: Setting CVar [[s.PriorityAsyncLoadingExtraTime:15.0]]
+[2024.02.24-06.50.29:701][  0]LogConfig: Setting CVar [[s.LevelStreamingActorsUpdateTimeLimit:5.0]]
+[2024.02.24-06.50.29:701][  0]LogConfig: Setting CVar [[s.PriorityLevelStreamingActorsUpdateExtraTime:5.0]]
+[2024.02.24-06.50.29:702][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsRegistrationGranularity:10]]
+[2024.02.24-06.50.29:703][  0]LogConfig: Setting CVar [[s.UnregisterComponentsTimeLimit:1.0]]
+[2024.02.24-06.50.29:704][  0]LogConfig: Setting CVar [[s.LevelStreamingComponentsUnregistrationGranularity:5]]
+[2024.02.24-06.50.29:704][  0]LogConfig: Setting CVar [[s.FlushStreamingOnExit:1]]
+[2024.02.24-06.50.29:704][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.GarbageCollectionSettings] File [../../../Cgame/Saved/Config/WindowsServer/Engine.ini]
+[2024.02.24-06.50.29:705][  0]LogConfig: Setting CVar [[gc.MaxObjectsNotConsideredByGC:1]]
+[2024.02.24-06.50.29:705][  0]LogConfig: Setting CVar [[gc.SizeOfPermanentObjectPool:0]]
+[2024.02.24-06.50.29:705][  0]LogConfig: Setting CVar [[gc.FlushStreamingOnGC:0]]
+[2024.02.24-06.50.29:706][  0]LogConfig: Setting CVar [[gc.NumRetriesBeforeForcingGC:10]]
+[2024.02.24-06.50.29:706][  0]LogConfig: Setting CVar [[gc.AllowParallelGC:1]]
+[2024.02.24-06.50.29:707][  0]LogConfig: Setting CVar [[gc.TimeBetweenPurgingPendingKillObjects:61.1]]
+[2024.02.24-06.50.29:707][  0]LogConfig: Setting CVar [[gc.MaxObjectsInEditor:25165824]]
+[2024.02.24-06.50.29:707][  0]LogConfig: Setting CVar [[gc.IncrementalBeginDestroyEnabled:1]]
+[2024.02.24-06.50.29:708][  0]LogConfig: Setting CVar [[gc.CreateGCClusters:1]]
+[2024.02.24-06.50.29:708][  0]LogConfig: Setting CVar [[gc.MinGCClusterSize:5]]
+[2024.02.24-06.50.29:708][  0]LogConfig: Setting CVar [[gc.ActorClusteringEnabled:0]]
+[2024.02.24-06.50.29:710][  0]LogConfig: Setting CVar [[gc.BlueprintClusteringEnabled:0]]
+[2024.02.24-06.50.29:711][  0]LogConfig: Setting CVar [[gc.UseDisregardForGCOnDedicatedServers:0]]
+[2024.02.24-06.50.29:712][  0]LogConfig: Setting CVar [[gc.MultithreadedDestructionEnabled:1]]
+[2024.02.24-06.50.29:712][  0]LogConfig: Applying CVar settings from Section [/Script/Engine.NetworkSettings] File [../../../Cgame/Saved/Config/WindowsServer/Engine.ini]
+[2024.02.24-06.50.29:713][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:713][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
+[2024.02.24-06.50.29:714][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
+[2024.02.24-06.50.29:714][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:714][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
+[2024.02.24-06.50.29:718][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:720][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
+[2024.02.24-06.50.29:720][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
+[2024.02.24-06.50.29:720][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
+[2024.02.24-06.50.29:720][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
+[2024.02.24-06.50.29:721][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
+[2024.02.24-06.50.29:721][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
+[2024.02.24-06.50.29:721][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
+[2024.02.24-06.50.29:722][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+[2024.02.24-06.50.29:722][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+[2024.02.24-06.50.29:722][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
+[2024.02.24-06.50.29:723][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
+[2024.02.24-06.50.29:723][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
+[2024.02.24-06.50.29:724][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
+[2024.02.24-06.50.29:724][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
+[2024.02.24-06.50.29:725][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
+[2024.02.24-06.50.29:725][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+[2024.02.24-06.50.29:726][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
+[2024.02.24-06.50.29:726][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
+[2024.02.24-06.50.29:727][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:727][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
+[2024.02.24-06.50.29:728][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+[2024.02.24-06.50.29:728][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
+[2024.02.24-06.50.29:728][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
+[2024.02.24-06.50.29:729][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+[2024.02.24-06.50.29:729][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
+[2024.02.24-06.50.29:729][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
+[2024.02.24-06.50.29:730][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
+[2024.02.24-06.50.29:730][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
+[2024.02.24-06.50.29:731][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
+[2024.02.24-06.50.29:732][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
+[2024.02.24-06.50.29:732][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
+[2024.02.24-06.50.29:732][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
+[2024.02.24-06.50.29:733][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
+[2024.02.24-06.50.29:734][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
+[2024.02.24-06.50.29:735][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
+[2024.02.24-06.50.29:735][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
+[2024.02.24-06.50.29:735][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+[2024.02.24-06.50.29:736][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+[2024.02.24-06.50.29:736][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+[2024.02.24-06.50.29:737][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+[2024.02.24-06.50.29:737][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+[2024.02.24-06.50.29:738][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+[2024.02.24-06.50.29:738][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+[2024.02.24-06.50.29:738][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+[2024.02.24-06.50.29:738][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+[2024.02.24-06.50.29:739][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+[2024.02.24-06.50.29:739][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+[2024.02.24-06.50.29:739][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+[2024.02.24-06.50.29:740][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+[2024.02.24-06.50.29:741][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:741][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
+[2024.02.24-06.50.29:742][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+[2024.02.24-06.50.29:742][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+[2024.02.24-06.50.29:743][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
+[2024.02.24-06.50.29:743][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
+[2024.02.24-06.50.29:743][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
+[2024.02.24-06.50.29:744][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+[2024.02.24-06.50.29:744][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
+[2024.02.24-06.50.29:744][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+[2024.02.24-06.50.29:745][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:745][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
+[2024.02.24-06.50.29:746][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
+[2024.02.24-06.50.29:746][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
+[2024.02.24-06.50.29:746][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
+[2024.02.24-06.50.29:747][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
+[2024.02.24-06.50.29:747][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
+[2024.02.24-06.50.29:748][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
+[2024.02.24-06.50.29:748][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
+[2024.02.24-06.50.29:748][  0]LogConfig: Setting CVar [[r.AnisotropicMaterials:1]]
+[2024.02.24-06.50.29:749][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
+[2024.02.24-06.50.29:750][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
+[2024.02.24-06.50.29:758][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
+[2024.02.24-06.50.29:758][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
+[2024.02.24-06.50.29:759][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
+[2024.02.24-06.50.29:759][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
+[2024.02.24-06.50.29:760][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
+[2024.02.24-06.50.29:760][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+[2024.02.24-06.50.29:760][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:4]]
+[2024.02.24-06.50.29:762][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
+[2024.02.24-06.50.29:762][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+[2024.02.24-06.50.29:762][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
+[2024.02.24-06.50.29:763][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:128.0]]
+[2024.02.24-06.50.29:763][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+[2024.02.24-06.50.29:763][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
+[2024.02.24-06.50.29:764][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
+[2024.02.24-06.50.29:764][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+[2024.02.24-06.50.29:765][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+[2024.02.24-06.50.29:766][  0]LogConfig: Setting CVar [[r.SkyLight.RealTimeReflectionCapture:1]]
+[2024.02.24-06.50.29:767][  0]LogConfig: Setting CVar [[fx.Niagara.QualityLevel:3]]
+[2024.02.24-06.50.29:767][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:767][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
+[2024.02.24-06.50.29:768][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
+[2024.02.24-06.50.29:768][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:768][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
+[2024.02.24-06.50.29:769][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:4]]
+[2024.02.24-06.50.29:769][  0]LogConfig: Setting CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
+[2024.02.24-06.50.29:770][  0]LogInit: Selected Device Profile: [WindowsServer]
+[2024.02.24-06.50.29:770][  0]LogInit: Applying CVar settings loaded from the selected device profile: [WindowsServer]
+[2024.02.24-06.50.29:770][  0]LogHAL: Display: Platform has ~ 16 GB [17102323712 / 17179869184 / 16], which maps to Larger [LargestMinGB=32, LargerMinGB=12, DefaultMinGB=8, SmallerMinGB=6, SmallestMinGB=0)
+[2024.02.24-06.50.29:771][  0]LogInit: Going up to parent DeviceProfile [Windows]
+[2024.02.24-06.50.29:771][  0]LogInit: Going up to parent DeviceProfile []
+[2024.02.24-06.50.29:771][  0]LogConfig: Applying CVar settings from Section [ViewDistanceQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:772][  0]LogConfig: Setting CVar [[r.SkeletalMeshLODBias:0]]
+[2024.02.24-06.50.29:772][  0]LogConfig: Setting CVar [[r.ViewDistanceScale:1.0]]
+[2024.02.24-06.50.29:772][  0]LogConfig: Applying CVar settings from Section [AntiAliasingQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:773][  0]LogConfig: Setting CVar [[r.PostProcessAAQuality:4]]
+[2024.02.24-06.50.29:773][  0]LogConfig: Applying CVar settings from Section [ShadowQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:773][  0]LogConfig: Setting CVar [[r.LightFunctionQuality:1]]
+[2024.02.24-06.50.29:774][  0]LogConfig: Setting CVar [[r.ShadowQuality:5]]
+[2024.02.24-06.50.29:774][  0]LogConfig: Setting CVar [[r.Shadow.CSM.MaxCascades:10]]
+[2024.02.24-06.50.29:774][  0]LogConfig: Setting CVar [[r.Shadow.MaxResolution:2048]]
+[2024.02.24-06.50.29:776][  0]LogConfig: Setting CVar [[r.Shadow.MaxCSMResolution:2048]]
+[2024.02.24-06.50.29:776][  0]LogConfig: Setting CVar [[r.Shadow.RadiusThreshold:0.01]]
+[2024.02.24-06.50.29:776][  0]LogConfig: Setting CVar [[r.Shadow.DistanceScale:1.0]]
+[2024.02.24-06.50.29:777][  0]LogConfig: Setting CVar [[r.Shadow.CSM.TransitionScale:1.0]]
+[2024.02.24-06.50.29:777][  0]LogConfig: Setting CVar [[r.Shadow.PreShadowResolutionFactor:1.0]]
+[2024.02.24-06.50.29:778][  0]LogConfig: Setting CVar [[r.DistanceFieldShadowing:1]]
+[2024.02.24-06.50.29:778][  0]LogConfig: Setting CVar [[r.DistanceFieldAO:1]]
+[2024.02.24-06.50.29:778][  0]LogConfig: Setting CVar [[r.AOQuality:2]]
+[2024.02.24-06.50.29:779][  0]LogConfig: Setting CVar [[r.VolumetricFog:1]]
+[2024.02.24-06.50.29:779][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridPixelSize:8]]
+[2024.02.24-06.50.29:780][  0]LogConfig: Setting CVar [[r.VolumetricFog.GridSizeZ:128]]
+[2024.02.24-06.50.29:781][  0]LogConfig: Setting CVar [[r.VolumetricFog.HistoryMissSupersampleCount:4]]
+[2024.02.24-06.50.29:782][  0]LogConfig: Setting CVar [[r.LightMaxDrawDistanceScale:1]]
+[2024.02.24-06.50.29:782][  0]LogConfig: Setting CVar [[r.CapsuleShadows:1]]
+[2024.02.24-06.50.29:782][  0]LogConfig: Applying CVar settings from Section [PostProcessQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:783][  0]LogConfig: Setting CVar [[r.MotionBlurQuality:4]]
+[2024.02.24-06.50.29:783][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMipLevelFactor:0.4]]
+[2024.02.24-06.50.29:783][  0]LogConfig: Setting CVar [[r.AmbientOcclusionMaxQuality:100]]
+[2024.02.24-06.50.29:784][  0]LogConfig: Setting CVar [[r.AmbientOcclusionLevels:-1]]
+[2024.02.24-06.50.29:784][  0]LogConfig: Setting CVar [[r.AmbientOcclusionRadiusScale:1.0]]
+[2024.02.24-06.50.29:785][  0]LogConfig: Setting CVar [[r.DepthOfFieldQuality:2]]
+[2024.02.24-06.50.29:785][  0]LogConfig: Setting CVar [[r.RenderTargetPoolMin:400]]
+[2024.02.24-06.50.29:785][  0]LogConfig: Setting CVar [[r.LensFlareQuality:2]]
+[2024.02.24-06.50.29:786][  0]LogConfig: Setting CVar [[r.SceneColorFringeQuality:1]]
+[2024.02.24-06.50.29:786][  0]LogConfig: Setting CVar [[r.EyeAdaptationQuality:2]]
+[2024.02.24-06.50.29:786][  0]LogConfig: Setting CVar [[r.BloomQuality:5]]
+[2024.02.24-06.50.29:787][  0]LogConfig: Setting CVar [[r.FastBlurThreshold:100]]
+[2024.02.24-06.50.29:787][  0]LogConfig: Setting CVar [[r.Upscale.Quality:3]]
+[2024.02.24-06.50.29:788][  0]LogConfig: Setting CVar [[r.Tonemapper.GrainQuantization:1]]
+[2024.02.24-06.50.29:788][  0]LogConfig: Setting CVar [[r.LightShaftQuality:1]]
+[2024.02.24-06.50.29:789][  0]LogConfig: Setting CVar [[r.Filter.SizeScale:1]]
+[2024.02.24-06.50.29:789][  0]LogConfig: Setting CVar [[r.Tonemapper.Quality:5]]
+[2024.02.24-06.50.29:789][  0]LogConfig: Setting CVar [[r.DOF.Gather.AccumulatorQuality:1        ; higher gathering accumulator quality]]
+[2024.02.24-06.50.29:790][  0]LogConfig: Setting CVar [[r.DOF.Gather.PostfilterMethod:1          ; Median3x3 postfilering method]]
+[2024.02.24-06.50.29:790][  0]LogConfig: Setting CVar [[r.DOF.Gather.EnableBokehSettings:0       ; no bokeh simulation when gathering]]
+[2024.02.24-06.50.29:790][  0]LogConfig: Setting CVar [[r.DOF.Gather.RingCount:4                 ; medium number of samples when gathering]]
+[2024.02.24-06.50.29:797][  0]LogConfig: Setting CVar [[r.DOF.Scatter.ForegroundCompositing:1    ; additive foreground scattering]]
+[2024.02.24-06.50.29:799][  0]LogConfig: Setting CVar [[r.DOF.Scatter.BackgroundCompositing:2    ; additive background scattering]]
+[2024.02.24-06.50.29:799][  0]LogConfig: Setting CVar [[r.DOF.Scatter.EnableBokehSettings:1      ; bokeh simulation when scattering]]
+[2024.02.24-06.50.29:800][  0]LogConfig: Setting CVar [[r.DOF.Scatter.MaxSpriteRatio:0.1         ; only a maximum of 10% of scattered bokeh]]
+[2024.02.24-06.50.29:800][  0]LogConfig: Setting CVar [[r.DOF.Recombine.Quality:1                ; cheap slight out of focus]]
+[2024.02.24-06.50.29:800][  0]LogConfig: Setting CVar [[r.DOF.Recombine.EnableBokehSettings:0    ; no bokeh simulation on slight out of focus]]
+[2024.02.24-06.50.29:801][  0]LogConfig: Setting CVar [[r.DOF.TemporalAAQuality:1                ; more stable temporal accumulation]]
+[2024.02.24-06.50.29:801][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxForegroundRadius:0.025]]
+[2024.02.24-06.50.29:801][  0]LogConfig: Setting CVar [[r.DOF.Kernel.MaxBackgroundRadius:0.025]]
+[2024.02.24-06.50.29:803][  0]LogConfig: Applying CVar settings from Section [TextureQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:803][  0]LogConfig: Setting CVar [[r.Streaming.MipBias:0]]
+[2024.02.24-06.50.29:803][  0]LogConfig: Setting CVar [[r.Streaming.AmortizeCPUToGPUCopy:0]]
+[2024.02.24-06.50.29:804][  0]LogConfig: Setting CVar [[r.Streaming.MaxNumTexturesToStreamPerFrame:0]]
+[2024.02.24-06.50.29:805][  0]LogConfig: Setting CVar [[r.Streaming.Boost:1]]
+[2024.02.24-06.50.29:805][  0]LogConfig: Setting CVar [[r.MaxAnisotropy:8]]
+[2024.02.24-06.50.29:806][  0]LogConfig: Setting CVar [[r.VT.MaxAnisotropy:8]]
+[2024.02.24-06.50.29:806][  0]LogConfig: Setting CVar [[r.Streaming.LimitPoolSizeToVRAM:0]]
+[2024.02.24-06.50.29:806][  0]LogConfig: Setting CVar [[r.Streaming.PoolSize:1000]]
+[2024.02.24-06.50.29:807][  0]LogConfig: Setting CVar [[r.Streaming.MaxEffectiveScreenSize:0]]
+[2024.02.24-06.50.29:807][  0]LogConfig: Applying CVar settings from Section [EffectsQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:808][  0]LogConfig: Setting CVar [[r.TranslucencyLightingVolumeDim:64]]
+[2024.02.24-06.50.29:808][  0]LogConfig: Setting CVar [[r.RefractionQuality:2]]
+[2024.02.24-06.50.29:808][  0]LogConfig: Setting CVar [[r.SSR.Quality:3]]
+[2024.02.24-06.50.29:809][  0]LogConfig: Setting CVar [[r.SSR.HalfResSceneColor:0]]
+[2024.02.24-06.50.29:809][  0]LogConfig: Setting CVar [[r.SceneColorFormat:4]]
+[2024.02.24-06.50.29:809][  0]LogConfig: Setting CVar [[r.DetailMode:2]]
+[2024.02.24-06.50.29:810][  0]LogConfig: Setting CVar [[r.TranslucencyVolumeBlur:1]]
+[2024.02.24-06.50.29:810][  0]LogConfig: Setting CVar [[r.MaterialQualityLevel:1 ; High quality]]
+[2024.02.24-06.50.29:811][  0]LogConfig: Setting CVar [[r.AnisotropicMaterials:1]]
+[2024.02.24-06.50.29:812][  0]LogConfig: Setting CVar [[r.SSS.Scale:1]]
+[2024.02.24-06.50.29:812][  0]LogConfig: Setting CVar [[r.SSS.SampleSet:2]]
+[2024.02.24-06.50.29:813][  0]LogConfig: Setting CVar [[r.SSS.Quality:1]]
+[2024.02.24-06.50.29:813][  0]LogConfig: Setting CVar [[r.SSS.HalfRes:0]]
+[2024.02.24-06.50.29:814][  0]LogConfig: Setting CVar [[r.SSGI.Quality:3]]
+[2024.02.24-06.50.29:814][  0]LogConfig: Setting CVar [[r.EmitterSpawnRateScale:1.0]]
+[2024.02.24-06.50.29:814][  0]LogConfig: Setting CVar [[r.ParticleLightQuality:2]]
+[2024.02.24-06.50.29:815][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.FastApplyOnOpaque:1 ; Always have FastSkyLUT 1 in this case to avoid wrong sky]]
+[2024.02.24-06.50.29:815][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.SampleCountMaxPerSlice:4]]
+[2024.02.24-06.50.29:816][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.AerialPerspectiveLUT.DepthResolution:16.0]]
+[2024.02.24-06.50.29:816][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT:1]]
+[2024.02.24-06.50.29:816][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMin:4.0]]
+[2024.02.24-06.50.29:817][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.FastSkyLUT.SampleCountMax:128.0]]
+[2024.02.24-06.50.29:817][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMin:4.0]]
+[2024.02.24-06.50.29:817][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.SampleCountMax:128.0]]
+[2024.02.24-06.50.29:819][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.UseSmallFormat:0]]
+[2024.02.24-06.50.29:819][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.TransmittanceLUT.SampleCount:10.0]]
+[2024.02.24-06.50.29:819][  0]LogConfig: Setting CVar [[r.SkyAtmosphere.MultiScatteringLUT.SampleCount:15.0]]
+[2024.02.24-06.50.29:820][  0]LogConfig: Setting CVar [[r.SkyLight.RealTimeReflectionCapture:1]]
+[2024.02.24-06.50.29:820][  0]LogConfig: Setting CVar [[fx.Niagara.QualityLevel:3]]
+[2024.02.24-06.50.29:820][  0]LogConfig: Applying CVar settings from Section [FoliageQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:820][  0]LogConfig: Setting CVar [[foliage.DensityScale:1.0]]
+[2024.02.24-06.50.29:822][  0]LogConfig: Setting CVar [[grass.DensityScale:1.0]]
+[2024.02.24-06.50.29:822][  0]LogConfig: Applying CVar settings from Section [ShadingQuality@3] File [../../../Cgame/Saved/Config/WindowsServer/Scalability.ini]
+[2024.02.24-06.50.29:822][  0]LogConfig: Setting CVar [[r.HairStrands.SkyLighting.IntegrationType:2]]
+[2024.02.24-06.50.29:823][  0]LogConfig: Setting CVar [[r.HairStrands.SkyAO.SampleCount:4]]
+[2024.02.24-06.50.29:823][  0]LogConfig: Setting CVar [[r.HairStrands.Visibility.MSAA.SamplePerPixel:4]]
+[2024.02.24-06.50.29:824][  0]LogConfig: Applying CVar settings from Section [Startup] File [../../../Engine/Config/ConsoleVariables.ini]
+[2024.02.24-06.50.29:824][  0]LogConfig: Setting CVar [[net.UseAdaptiveNetUpdateFrequency:0]]
+[2024.02.24-06.50.29:824][  0]LogConfig: Setting CVar [[p.chaos.AllowCreatePhysxBodies:1]]
+[2024.02.24-06.50.29:825][  0]LogConfig: Setting CVar [[fx.SkipVectorVMBackendOptimizations:1]]
+[2024.02.24-06.50.29:825][  0]LogConfig: Applying CVar settings from Section [ConsoleVariables] File [../../../Cgame/Saved/Config/WindowsServer/Engine.ini]
+[2024.02.24-06.50.29:825][  0]LogInit: Computer: BATTLESTATION
+[2024.02.24-06.50.29:826][  0]LogInit: User: NoU
+[2024.02.24-06.50.29:826][  0]LogInit: CPU Page size=4096, Cores=6
+[2024.02.24-06.50.29:826][  0]LogInit: High frequency timer resolution =10.000000 MHz
+[2024.02.24-06.50.29:827][  0]LogMemory: Memory total: Physical=15.9GB (16GB approx)
+[2024.02.24-06.50.29:828][  0]LogMemory: Platform Memory Stats for WindowsServer
+[2024.02.24-06.50.29:829][  0]LogMemory: Process Physical Memory: 76.64 MB used, 76.64 MB peak
+[2024.02.24-06.50.29:829][  0]LogMemory: Process Virtual Memory: 75.52 MB used, 75.52 MB peak
+[2024.02.24-06.50.29:830][  0]LogMemory: Physical Memory: 7683.54 MB used,  8626.50 MB free, 16310.05 MB total
+[2024.02.24-06.50.29:830][  0]LogMemory: Virtual Memory: 134210112.00 MB used,  7615.64 MB free, 134217728.00 MB total
+[2024.02.24-06.50.29:835][  0]LogWindows: WindowsPlatformFeatures disabled or dedicated server build
+[2024.02.24-06.50.29:976][  0]LogInit: Physics initialised using underlying interface: PhysX
+[2024.02.24-06.50.29:976][  0]LogInit: Using OS detected language (en-US).
+[2024.02.24-06.50.29:976][  0]LogInit: Using OS detected locale (en-US).
+[2024.02.24-06.50.29:977][  0]LogTextLocalizationManager: No specific localization for 'en-US' exists, so the 'en' localization will be used.
+[2024.02.24-06.50.30:005][  0]LogRendererCore: Ray tracing is disabled. Reason: r.RayTracing=0.
+[2024.02.24-06.50.30:005][  0]LogODSC: ODSC Thread active.
+[2024.02.24-06.50.30:015][  0]LogInit: Using OS detected language (en-US).
+[2024.02.24-06.50.30:015][  0]LogInit: Using OS detected locale (en-US).
+[2024.02.24-06.50.30:015][  0]LogTextLocalizationManager: No localization for 'en-US' exists, so 'en' will be used for the language.
+[2024.02.24-06.50.30:016][  0]LogTextLocalizationManager: No localization for 'en-US' exists, so 'en' will be used for the locale.
+[2024.02.24-06.50.30:017][  0]LogTextLocalizationManager: Compacting localization data took   0.52ms
+[2024.02.24-06.50.30:017][  0]LogAssetRegistry: FAssetRegistry took 0.0010 seconds to start up
+[2024.02.24-06.50.30:089][  0]LogStreaming: Display: FlushAsyncLoading: 1 QueuedPackages, 0 AsyncPackages
+[2024.02.24-06.50.30:091][  0]LogPackageLocalizationCache: Processed 26 localized package path(s) for 1 prioritized culture(s) in 0.000063 seconds
+[2024.02.24-06.50.30:091][  0]LogPakFile: New pak file ../../../Cgame/Content/Paks/Cgame-WindowsServer.pak added to pak precacher.
+[2024.02.24-06.50.30:094][  0]LogInit: Selected Device Profile: [WindowsServer]
+[2024.02.24-06.50.30:095][  0]LogInit: Active device profile: [000001A75AEDF4C0][000001A756189250 49] WindowsServer
+[2024.02.24-06.50.30:095][  0]LogInit: Profiles: [000001A75AEDF640][000001A759A26DC0 49] Windows, [000001A75AEDF4C0][000001A756189250 49] WindowsServer, 
+[2024.02.24-06.50.30:104][  0]LogSerialization: Display: AllowBulkDataInIoStore: 'true'
+[2024.02.24-06.50.30:114][  0]LogNetVersion: Cgame 1.0.0, NetCL: 0, EngineNetVer: 17, GameNetVer: 0 (Checksum: 804825050)
+[2024.02.24-06.50.30:158][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2024.02.24-06.50.30:158][  0]LogAudioCaptureCore: Display: No Audio Capture implementations found. Audio input will be silent.
+[2024.02.24-06.50.30:159][  0]LogHMD: PokeAHoleMaterial loaded successfully
+[2024.02.24-06.50.30:191][  0]LogUObjectArray: 15924 objects as part of root set at end of initial load.
+[2024.02.24-06.50.30:191][  0]LogUObjectAllocator: 3253384 out of 0 bytes used by permanent object pool.
+[2024.02.24-06.50.30:191][  0]LogUObjectArray: CloseDisregardForGC: 15924/0 objects in disregard for GC pool
+[2024.02.24-06.50.30:214][  0]LogNiagaraDebuggerClient: Niagara Debugger Client Initialized | Session: 4E49718D4739B2C800659DB768B730CB | Instance: BE5E4AA241463E3D9F1E0597D5726189 (BATTLESTATION-19416).
+[2024.02.24-06.50.30:219][  0]LogAndroidPermission: UAndroidPermissionCallbackProxy::GetInstance
+[2024.02.24-06.50.30:219][  0]LogOcInput: OculusInput pre-init called
+[2024.02.24-06.50.30:222][  0]LogEngine: Initializing Engine...
+[2024.02.24-06.50.30:223][  0]LogStats: UGameplayTagsManager::InitializeManager -  0.001 s
+[2024.02.24-06.50.30:228][  0]LogInit: Initializing FReadOnlyCVARCache
+[2024.02.24-06.50.30:228][  0]LogNetVersion: Set ProjectVersion to 1.0.0.0. Version Checksum will be recalculated on next use.
+[2024.02.24-06.50.30:229][  0]LogInit: Texture streaming: Disabled
+[2024.02.24-06.50.30:247][  0]LogInit: Display: Game Engine Initialized.
+[2024.02.24-06.50.30:247][  0]LogInit: Display: Starting Game.
+[2024.02.24-06.50.30:248][  0]LogNet: Browse: /Game/Maps/ThirdPersonExampleMap?Name=Player
+[2024.02.24-06.50.30:248][  0]LogLoad: LoadMap: /Game/Maps/ThirdPersonExampleMap?Name=Player
+[2024.02.24-06.50.30:249][  0]LogWorld: BeginTearingDown for /Temp/Untitled_0
+[2024.02.24-06.50.30:254][  0]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
+[2024.02.24-06.50.30:258][  0]LogUObjectHash: Compacting FUObjectHashTables data took   0.49ms
+[2024.02.24-06.50.30:272][  0]LogAIModule: Creating AISystem for world ThirdPersonExampleMap
+[2024.02.24-06.50.30:273][  0]LogLoad: Game class is 'BRGameMode'
+[2024.02.24-06.50.30:274][  0]LogNet: ReplicationDriverClass is null! Not using ReplicationDriver.
+[2024.02.24-06.50.30:274][  0]LogNetCore: DDoS detection status: detection enabled: 0 analytics enabled: 0
+[2024.02.24-06.50.30:275][  0]LogInit: WinSock: Socket queue. Rx: 131072 (config 131072) Tx: 131072 (config 131072)
+[2024.02.24-06.50.30:275][  0]LogNet: Created socket for bind address: 0.0.0.0 on port 7777
+[2024.02.24-06.50.30:275][  0]PacketHandlerLog: Loaded PacketHandler component: Engine.EngineHandlerComponentFactory (StatelessConnectHandlerComponent)
+[2024.02.24-06.50.30:276][  0]LogNet: GameNetDriver IpNetDriver_2147482565 IpNetDriver listening on port 7777
+[2024.02.24-06.50.30:279][  0]LogWorld: Bringing World /Game/Maps/ThirdPersonExampleMap.ThirdPersonExampleMap up for play (max tick rate 30) at 2024.02.24-13.50.30
+[2024.02.24-06.50.30:280][  0]LogWorld: Bringing up level for play took: 0.004070
+[2024.02.24-06.50.30:281][  0]LogGameMode: Display: Match State Changed from EnteringMap to WaitingToStart
+[2024.02.24-06.50.30:281][  0]LogGameState: Match State Changed from EnteringMap to WaitingToStart
+[2024.02.24-06.50.30:282][  0]LogLoad: Took 0.033286 seconds to LoadMap(/Game/Maps/ThirdPersonExampleMap)
+[2024.02.24-06.50.30:282][  0]LogPakFile: AllPaks IndexSizes: DirectoryHashSize=199416, PathHashSize=16, EntriesSize=32752, TotalSize=232184
+[2024.02.24-06.50.30:282][  0]LogInit: Display: Engine is initialized. Leaving FEngineLoop::Init()
+[2024.02.24-06.50.30:282][  0]LogLoad: (Engine Initialization) Total time: 1.10 seconds
+[2024.02.24-06.51.10:755][134]LogNet: NotifyAcceptingConnection accepted from: 127.0.0.1:61533
+[2024.02.24-06.51.10:755][134]LogHandshake: SendConnectChallenge. Timestamp: 40.471523, Cookie: 005226063096237243185243118058079249252249237154107110246080
+[2024.02.24-06.51.10:801][135]LogNet: NotifyAcceptingConnection accepted from: 127.0.0.1:61533
+[2024.02.24-06.51.10:801][135]LogHandshake: SendChallengeAck. InCookie: 005226063096237243185243118058079249252249237154107110246080
+[2024.02.24-06.51.10:801][135]LogNet: Server accepting post-challenge connection from: 127.0.0.1:61533
+[2024.02.24-06.51.10:802][135]PacketHandlerLog: Loaded PacketHandler component: Engine.EngineHandlerComponentFactory (StatelessConnectHandlerComponent)
+[2024.02.24-06.51.10:803][135]LogNet: NotifyAcceptedConnection: Name: ThirdPersonExampleMap, TimeStamp: 02/24/24 13:51:10, [UNetConnection] RemoteAddr: 127.0.0.1:61533, Name: IpConnection_2147482558, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: NULL, Owner: NULL, UniqueId: INVALID
+[2024.02.24-06.51.10:803][135]LogNet: AddClientConnection: Added client connection: [UNetConnection] RemoteAddr: 127.0.0.1:61533, Name: IpConnection_2147482558, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: NULL, Owner: NULL, UniqueId: INVALID
+[2024.02.24-06.51.10:804][135]LogNet: NotifyAcceptingChannel Control 0 server World /Game/Maps/ThirdPersonExampleMap.ThirdPersonExampleMap: Accepted
+[2024.02.24-06.51.10:804][135]LogNet: Remote platform little endian=1
+[2024.02.24-06.51.10:804][135]LogNet: This platform little endian=1
+[2024.02.24-06.51.10:805][135]LogNetVersion: Cgame 1.0.0.0, NetCL: 0, EngineNetVer: 17, GameNetVer: 0 (Checksum: 198000864)
+[2024.02.24-06.51.10:848][136]LogNet: Login request: ?Name=BattleStation-5516E1594B66687CB7D7F6BDEFD48E58 userId: NULL:BattleStation-5516E1594B66687CB7D7F6BDEFD48E58 platform: NULL
+[2024.02.24-06.51.10:896][137]LogNet: Client netspeed is 100000
+[2024.02.24-06.51.10:896][137]LogNet: Join request: /Game/Maps/ThirdPersonExampleMap?Name=BattleStation-5516E1594B66687CB7D7F6BDEFD48E58?SplitscreenCount=1
+[2024.02.24-06.51.10:898][137]LogOnlineSession: Warning: OSS: No game present to join for session (GameSession)
+[2024.02.24-06.51.10:900][137]LogGameMode: Display: Match State Changed from WaitingToStart to InProgress
+[2024.02.24-06.51.10:908][137]LogGameState: Match State Changed from WaitingToStart to InProgress
+[2024.02.24-06.51.10:908][137]LogNet: Join succeeded: BattleStation-5516E1
+[2024.02.24-06.51.46:157][182]LogNet: NotifyAcceptingConnection accepted from: 127.0.0.1:64953
+[2024.02.24-06.51.46:157][182]LogHandshake: SendConnectChallenge. Timestamp: 75.874147, Cookie: 130207063161143123212051044107186037193044056216072099082135
+[2024.02.24-06.51.46:190][183]LogNet: NotifyAcceptingConnection accepted from: 127.0.0.1:64953
+[2024.02.24-06.51.46:190][183]LogHandshake: SendChallengeAck. InCookie: 130207063161143123212051044107186037193044056216072099082135
+[2024.02.24-06.51.46:190][183]LogNet: Server accepting post-challenge connection from: 127.0.0.1:64953
+[2024.02.24-06.51.46:191][183]PacketHandlerLog: Loaded PacketHandler component: Engine.EngineHandlerComponentFactory (StatelessConnectHandlerComponent)
+[2024.02.24-06.51.46:191][183]LogNet: NotifyAcceptedConnection: Name: ThirdPersonExampleMap, TimeStamp: 02/24/24 13:51:46, [UNetConnection] RemoteAddr: 127.0.0.1:64953, Name: IpConnection_2147482531, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: NULL, Owner: NULL, UniqueId: INVALID
+[2024.02.24-06.51.46:192][183]LogNet: AddClientConnection: Added client connection: [UNetConnection] RemoteAddr: 127.0.0.1:64953, Name: IpConnection_2147482531, Driver: GameNetDriver IpNetDriver_2147482565, IsServer: YES, PC: NULL, Owner: NULL, UniqueId: INVALID
+[2024.02.24-06.51.46:192][183]LogNet: NotifyAcceptingChannel Control 0 server World /Game/Maps/ThirdPersonExampleMap.ThirdPersonExampleMap: Accepted
+[2024.02.24-06.51.46:193][183]LogNet: Remote platform little endian=1
+[2024.02.24-06.51.46:193][183]LogNet: This platform little endian=1
+[2024.02.24-06.51.46:224][184]LogNet: Login request: ?Name=BattleStation-43D6CA5B4E7DCADA11FDE2913556F059 userId: NULL:BattleStation-43D6CA5B4E7DCADA11FDE2913556F059 platform: NULL
+[2024.02.24-06.51.46:291][186]LogNet: Client netspeed is 100000
+[2024.02.24-06.51.46:291][186]LogNet: Join request: /Game/Maps/ThirdPersonExampleMap?Name=BattleStation-43D6CA5B4E7DCADA11FDE2913556F059?SplitscreenCount=1
+[2024.02.24-06.51.46:292][186]LogOnlineSession: Warning: OSS: No game present to join for session (GameSession)
+[2024.02.24-06.51.46:295][186]LogNet: Join succeeded: BattleStation-43D6CA

@@ -1,10 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "BaseCharacter.h"
 #include "Math/UnrealMathUtility.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "Engine/Engine.h"
-#include "BaseCharacter.h"
+
 
 ///////////////////////////////////////////////////////////////
 // ABaseCharacter
@@ -74,36 +75,45 @@ void ABaseCharacter::Tick(float DeltaTime)
 	}
 #pragma endregion
 
+	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Red,
+		*(FString::Printf(
+			TEXT("Health - Current:%f | Maximum:%f"), CurrentHealth, MaxHealth)));
+	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Green,
+		*(FString::Printf(
+			TEXT("Charges - Current:%f | Maximum:%f"), CurrentCharges, Charges)));
+	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Cyan,
+		*(FString::Printf(
+			TEXT("Super - Current:%f | Maximum:%f"), CurrentSuperProgress, MaxSuperProgress)));
 }
 
 //////////////////////////////////////////////////////////////////
 // Gameplay Mechanics
 
 // Return the player's current health
-int ABaseCharacter::GetCurrentHealth()
+float ABaseCharacter::GetCurrentHealth()
 {
 	return CurrentHealth;
 }
 
 // Setter for Current Health. Clamps the value between 0 and MaxHealth and calls OnHealthUpdate. Should only be called on the server.
-void ABaseCharacter::SetCurrentHealth(int healthValue)
+void ABaseCharacter::SetCurrentHealth(float healthValue)
 {
 	if (GetLocalRole() == ROLE_Authority)
 	{
-		CurrentHealth = FMath::Clamp(healthValue, 0, MaxHealth);
+		CurrentHealth = FMath::Clamp(healthValue, 0.f, MaxHealth);
 		OnHealthUpdate();
 	}
 }
 
 // Return the player's max health
-int ABaseCharacter::GetMaxHealth()
+float ABaseCharacter::GetMaxHealth()
 {
 	return MaxHealth;
 }
 
 // Modify the player's health by the specified amount
 // -ve values are subtracted +ve are added
-void ABaseCharacter::UpdateHealth(int DeltaHealth)
+void ABaseCharacter::UpdateHealth(float DeltaHealth)
 {
 	// Check if the player is dead
 	if (CurrentHealth >= 0.f) return;
@@ -115,7 +125,7 @@ void ABaseCharacter::UpdateHealth(int DeltaHealth)
 
 	// Make sure that the updated CurrentHealth is in an acceptable range
 	// In this case it'll never be less than -1 or more than MaxHealth
-	CurrentHealth = FMath::Clamp(CurrentHealth, -1, MaxHealth);
+	CurrentHealth = FMath::Clamp(CurrentHealth, -1.f, MaxHealth);
 
 	// Compare the value before we changed it with the new value
 	if (CurrentHealth != OldValue)
@@ -138,15 +148,15 @@ void ABaseCharacter::RestoretoFullHealth()
 }
 
 // Set the maximum player's allowable health
-void ABaseCharacter::SetMaxHealth(int NewMaxHealth)
+void ABaseCharacter::SetMaxHealth(float NewMaxHealth)
 {
 	// will implement the range checking later
 	MaxHealth = NewMaxHealth;
 }
 
-int ABaseCharacter::TakeDamage(int DamageTaken, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+float ABaseCharacter::TakeDamage(float DamageTaken, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
-	int damageApplied = CurrentHealth - DamageTaken;
+	float damageApplied = CurrentHealth - DamageTaken;
 	SetCurrentHealth(damageApplied);
 	return damageApplied;
 }

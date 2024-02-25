@@ -14,8 +14,8 @@
 
 ACgameCharacter::ACgameCharacter()
 {
-	// Set size for collision capsule
-	GetCapsuleComponent()->InitCapsuleSize(12.f, 12.0f);
+	// Create An Actor Character
+	GetCapsuleComponent()->InitCapsuleSize(12.f, 12.0f);// Set size for collision capsule
 
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
@@ -24,12 +24,12 @@ ACgameCharacter::ACgameCharacter()
 
 	// Configure character movement
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
-	GetCharacterMovement()->RotationRate = FRotator(0.0f, 405.0f, 0.0f); // ...at this rotation rate
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 400.0f, 0.0f); // ...at this rotation rate
 	GetCharacterMovement()->MaxWalkSpeed = 100.f; // set the character max movement speed
 
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
-	CameraBoom->SetupAttachment(RootComponent);
+	CameraBoom->SetupAttachment(GetRootComponent()); 
 	CameraBoom->TargetArmLength = 200.0f; // The	camera follows at this distance behind the character	
 	CameraBoom->bDoCollisionTest = false; // Dont want to pull the camera in when collides with an object
 

@@ -1,8 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "BaseCharacter.h"
 #include "Math/UnrealMathUtility.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "BaseCharacter.h"
+#include "Net/UnrealNetwork.h"
+#include "Engine/Engine.h"
+
 
 ///////////////////////////////////////////////////////////////
 // ABaseCharacter
@@ -13,6 +16,16 @@ ABaseCharacter::ABaseCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 	SetActorTickInterval(0.5f);
 	SetActorTickEnabled(true);
+}
+
+// Replicated Properties
+void ABaseCharacter::GetLifetimeReplicatedProps(TArray <FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	//Replicate current health.
+	DOREPLIFETIME(ABaseCharacter, CurrentHealth);
+
 }
 
 // Called when the game starts or when spawned
@@ -62,36 +75,45 @@ void ABaseCharacter::Tick(float DeltaTime)
 	}
 #pragma endregion
 
-	// Temporarily display debug information
-	GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Green,
+	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Red,
 		*(FString::Printf(
-			TEXT("Health - Current:%d | Maximum:%d"), CurrentHealth, MaxHealth)));
-	GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Yellow,
+			TEXT("Health - Current:%f | Maximum:%f"), CurrentHealth, MaxHealth)));
+	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Green,
+		*(FString::Printf(
+			TEXT("Charges - Current:%f | Maximum:%f"), CurrentCharges, Charges)));
+	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Cyan,
 		*(FString::Printf(
 			TEXT("Super - Current:%f | Maximum:%f"), CurrentSuperProgress, MaxSuperProgress)));
-	GEngine->AddOnScreenDebugMessage(-1, 0.2f, FColor::Red,
-		*(FString::Printf(
-			TEXT("Ammo - Current:%f | Maximum:%f"), CurrentCharges, Charges)));
 }
 
 //////////////////////////////////////////////////////////////////
 // Gameplay Mechanics
 
 // Return the player's current health
-int ABaseCharacter::GetHealth()
+float ABaseCharacter::GetCurrentHealth()
 {
 	return CurrentHealth;
 }
 
+// Setter for Current Health. Clamps the value between 0 and MaxHealth and calls OnHealthUpdate. Should only be called on the server.
+void ABaseCharacter::SetCurrentHealth(float healthValue)
+{
+	if (GetLocalRole() == ROLE_Authority)
+	{
+		CurrentHealth = FMath::Clamp(healthValue, 0.f, MaxHealth);
+		OnHealthUpdate();
+	}
+}
+
 // Return the player's max health
-int ABaseCharacter::GetMaxHealth()
+float ABaseCharacter::GetMaxHealth()
 {
 	return MaxHealth;
 }
 
 // Modify the player's health by the specified amount
 // -ve values are subtracted +ve are added
-void ABaseCharacter::UpdateHealth(int DeltaHealth)
+void ABaseCharacter::UpdateHealth(float DeltaHealth)
 {
 	// Check if the player is dead
 	if (CurrentHealth >= 0.f) return;
@@ -103,7 +125,7 @@ void ABaseCharacter::UpdateHealth(int DeltaHealth)
 
 	// Make sure that the updated CurrentHealth is in an acceptable range
 	// In this case it'll never be less than -1 or more than MaxHealth
-	CurrentHealth = FMath::Clamp(CurrentHealth, -1, MaxHealth);
+	CurrentHealth = FMath::Clamp(CurrentHealth, -1.f, MaxHealth);
 
 	// Compare the value before we changed it with the new value
 	if (CurrentHealth != OldValue)
@@ -126,11 +148,47 @@ void ABaseCharacter::RestoretoFullHealth()
 }
 
 // Set the maximum player's allowable health
-void ABaseCharacter::SetMaxHealth(int NewMaxHealth)
+void ABaseCharacter::SetMaxHealth(float NewMaxHealth)
 {
 	// will implement the range checking later
 	MaxHealth = NewMaxHealth;
 }
+
+float ABaseCharacter::TakeDamage(float DamageTaken, struct FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+{
+	float damageApplied = CurrentHealth - DamageTaken;
+	SetCurrentHealth(damageApplied);
+	return damageApplied;
+}
+
+void ABaseCharacter::OnHealthUpdate()
+{
+	//Client-specific functionality
+	if (IsLocallyControlled())
+	{
+		FString healthMessage = FString::Printf(TEXT("You now have %f health remaining."), CurrentHealth);
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, healthMessage);
+
+		if (CurrentHealth <= 0)
+		{
+			FString deathMessage = FString::Printf(TEXT("You have been killed."));
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, deathMessage);
+		}
+	}
+
+	//Server-specific functionality
+	if (GetLocalRole() == ROLE_Authority)
+	{
+		FString healthMessage = FString::Printf(TEXT("%s now has %f health remaining."), *GetFName().ToString(), CurrentHealth);
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, healthMessage);
+	}
+
+	//Functions that occur on all machines. 
+	/*
+		Any special functionality that should occur as a result of damage or death should be placed here.
+	*/
+}
+
 
 // Return the player's current Super Recharge Progress
 float ABaseCharacter::GetCurrentSuperProgress()

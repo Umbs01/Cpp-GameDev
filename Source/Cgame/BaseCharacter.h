@@ -129,6 +129,10 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Player|Damage")
 	float GetCurrentCharges();
 
+	// Called when aiming & spawning in an AimGuide AActor
+	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
+	void Aim();
+
 	// Called when player fire the weapon!
 	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
 	void Blast();
@@ -171,5 +175,8 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	// APawn input interface
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 };

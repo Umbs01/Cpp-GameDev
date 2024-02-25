@@ -21,6 +21,7 @@ ABaseCharacter::ABaseCharacter()
 	//Initialize projectile class
 	ProjectileClass = ACProjectile::StaticClass();
 	bIsFiringWeapon = false;
+  
 }
 
 // Replicated Properties
@@ -89,6 +90,15 @@ void ABaseCharacter::Tick(float DeltaTime)
 	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Cyan,
 		*(FString::Printf(
 			TEXT("Super - Current:%f | Maximum:%f"), CurrentSuperProgress, MaxSuperProgress)));
+}
+
+void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+{
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	// Handle firing projectiles
+	PlayerInputComponent->BindAction("Aim", IE_Pressed, this, &ABaseCharacter::Aim);
+	PlayerInputComponent->BindAction("Fire", IE_Released , this, &ABaseCharacter::Blast);
 }
 
 //////////////////////////////////////////////////////////////////
@@ -245,7 +255,13 @@ float ABaseCharacter::GetCurrentCharges()
 	return CurrentCharges;
 }
 
-// player fire the weapon!
+// Called when aiming & spawning in an AimGuide AActor
+void ABaseCharacter::Aim()
+{
+
+}
+
+// Called when player fire the weapon!
 void ABaseCharacter::Blast()
 {
 	// the cost to fire once is 100.0f
@@ -267,15 +283,17 @@ void ABaseCharacter::Blast()
 	}
 }
 
+// Called when ending weapon fire.Once this is called, the player can use StartFire again.* /
 void ABaseCharacter::StopBlast()
 {
 	bIsFiringWeapon = false;
 }
 
+// Server function for spawning projectiles.
 void ABaseCharacter::HandleBlast_Implementation()
 {
 	// Get the Location & Rotations of the Actor to spawn the actor
-	FVector spawnLocation = GetActorLocation() + (GetControlRotation().Vector() + 15.0f) + (GetActorUpVector() + 10.0f);
+	FVector spawnLocation = GetActorLocation() + (GetActorRightVector() + 10.0f) + (GetActorUpVector() + 10.0f);
 	FRotator spawnRotation = GetActorRotation();
 
 	// Get the spawn parameters

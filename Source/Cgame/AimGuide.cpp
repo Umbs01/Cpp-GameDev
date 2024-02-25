@@ -1,7 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Components/BoxComponent.h"
 #include "AimGuide.h"
+#include "Components/StaticMeshComponent.h"
+#include "GameFramework/ProjectileMovementComponent.h"
+#include "Components/BoxComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "UObject/ConstructorHelpers.h"
+
 
 // Sets default values
 AAimGuide::AAimGuide()
@@ -11,7 +16,7 @@ AAimGuide::AAimGuide()
 
 	// Creating default components
 	BoxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("Box"));
-	BoxComp->SetBoxExtent(FVector(20.f, 20.f, 1.f));
+	BoxComp->SetBoxExtent(FVector(20.f, 13.f, 1.f));
 
 }
 

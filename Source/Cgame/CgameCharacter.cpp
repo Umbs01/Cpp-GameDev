@@ -30,7 +30,7 @@ ACgameCharacter::ACgameCharacter()
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(GetRootComponent()); 
-	CameraBoom->TargetArmLength = 200.0f; // The	camera follows at this distance behind the character	
+	CameraBoom->TargetArmLength = 200.0f; // The camera follows at this distance behind the character	
 	CameraBoom->bDoCollisionTest = false; // Dont want to pull the camera in when collides with an object
 
 	// Making the camera stays fixed

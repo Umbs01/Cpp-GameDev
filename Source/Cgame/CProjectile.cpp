@@ -19,7 +19,7 @@ ACProjectile::ACProjectile()
 
 	//Definition for the SphereComponent that will serve as the Root component for the projectile and its collision.
 	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("RootComponent"));
-	SphereComponent->InitSphereRadius(10.5f);
+	SphereComponent->InitSphereRadius(12.5f);
 	SphereComponent->SetCollisionProfileName(TEXT("BlockAllDynamic"));
 	RootComponent = SphereComponent;
 
@@ -38,8 +38,8 @@ ACProjectile::ACProjectile()
 	if (DefaultMesh.Succeeded())
 	{
 		StaticMesh->SetStaticMesh(DefaultMesh.Object);
-		StaticMesh->SetRelativeLocation(FVector(0.0f, 0.0f, -37.5f));
-		StaticMesh->SetRelativeScale3D(FVector(0.75f, 0.75f, 0.75f));
+		StaticMesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
+		StaticMesh->SetRelativeScale3D(FVector(2.f, 2.f, 2.f));
 	}
 
 	static ConstructorHelpers::FObjectFinder<UParticleSystem> DefaultExplosionEffect(TEXT("/Game/StarterContent/Particles/P_Explosion"));

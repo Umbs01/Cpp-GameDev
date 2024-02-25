@@ -58,7 +58,7 @@ ACProjectile::ACProjectile()
 
 	// Defining the damage type
 	DamageType = UDamageType::StaticClass();
-	Damage = 3000.0f;
+	Damage = 950.0f;
 
 }
 

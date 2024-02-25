@@ -5,6 +5,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "Engine/Engine.h"
+#include "CProjectile.h"
 
 
 ///////////////////////////////////////////////////////////////
@@ -16,6 +17,10 @@ ABaseCharacter::ABaseCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 	SetActorTickInterval(0.5f);
 	SetActorTickEnabled(true);
+
+	//Initialize projectile class
+	ProjectileClass = ACProjectile::StaticClass();
+	bIsFiringWeapon = false;
 }
 
 // Replicated Properties
@@ -247,8 +252,12 @@ void ABaseCharacter::Blast()
 	// check if we have anough charges before allowing the action to work
 	if (CurrentCharges >= 100.0f)
 	{
-		// Do the Busting
-		// Debugging
+		bIsFiringWeapon = true;
+		UWorld* World = GetWorld();
+		World->GetTimerManager().SetTimer(FiringTimer, this, &ABaseCharacter::StopBlast, FireRate, false);
+		HandleBlast();
+
+		// Debugging 
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Blue,
 			*(FString::Printf(
 				TEXT("BOOOM"))));
@@ -256,4 +265,25 @@ void ABaseCharacter::Blast()
 		// Deduct the charge used
 		CurrentCharges -= 100.0f;
 	}
+}
+
+void ABaseCharacter::StopBlast()
+{
+	bIsFiringWeapon = false;
+}
+
+void ABaseCharacter::HandleBlast_Implementation()
+{
+	// Get the Location & Rotations of the Actor to spawn the actor
+	FVector spawnLocation = GetActorLocation() + (GetControlRotation().Vector() * 30.0f) + (GetActorUpVector() * 15.0f);
+	FRotator spawnRotation = GetActorRotation();
+
+	// Get the spawn parameters
+	FActorSpawnParameters spawnParams;
+	spawnParams.Instigator = GetInstigator();
+	spawnParams.Owner = this;
+
+	// Spawn the projectile
+	ACProjectile* spawnedProjectile = GetWorld()->SpawnActor<ACProjectile>(spawnLocation, spawnRotation, spawnParams);
+
 }

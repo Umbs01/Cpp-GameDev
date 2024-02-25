@@ -129,9 +129,17 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Player|Damage")
 	float GetCurrentCharges();
 
-	// player fire the weapon!
+	// Called when player fire the weapon!
 	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
 	void Blast();
+
+	// Called when ending weapon fire.Once this is called, the player can use StartFire again.* /
+	UFUNCTION(BlueprintCallable, Category = "Gameplay")
+	void StopBlast();
+
+	// Server function for spawning projectiles.
+	UFUNCTION(Server, Reliable)
+	void HandleBlast();
 
 	// Triggered when the players charges is updated.
 	UPROPERTY(BlueprintAssignable, Category = "Player|Damage")
@@ -146,6 +154,19 @@ protected:
 	// replicate current player health and can be replicated using OnHealthUpdate() function
 	UPROPERTY(ReplicatedUsing = OnHealthUpdate)
 	float CurrentHealth = BaseHealth;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Player|Projectile")
+	TSubclassOf<class ACProjectile> ProjectileClass;
+
+	// If true, we are in the process of firing projectiles. 
+	bool bIsFiringWeapon;
+
+	/** Delay between shots in seconds. Used to control fire rate for our test projectile, but also to prevent an overflow of server functions from binding SpawnProjectile directly to input.*/
+	UPROPERTY(EditDefaultsOnly, Category = "Player|Projectile")
+	float FireRate = 0.25f;
+
+	// A timer handle used for providing the fire rate delay in-between spawns.
+	FTimerHandle FiringTimer;
 
 public:
 	// Called every frame

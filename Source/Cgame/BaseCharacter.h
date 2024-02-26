@@ -133,12 +133,20 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
 	void Aim();
 
+	// Called when stop aiming & deleting an exising AimGuide AActor
+	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
+	void StopAim();
+
+	// Function handling for aiming ( Does not replicate like HandleBlast() )
+	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
+	void HandleAim();
+
 	// Called when player fire the weapon!
 	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
 	void Blast();
 
 	// Called when ending weapon fire.Once this is called, the player can use StartFire again.* /
-	UFUNCTION(BlueprintCallable, Category = "Gameplay")
+	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
 	void StopBlast();
 
 	// Server function for spawning projectiles.
@@ -162,8 +170,14 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Player|Projectile")
 	TSubclassOf<class ACProjectile> ProjectileClass;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Player|Damage")
+	TSubclassOf<class AAimGuide> AimGuideClass;
+
 	// If true, we are in the process of firing projectiles. 
 	bool bIsFiringWeapon;
+
+	// If true, we are in the process of aiming.
+	bool bIsAiming;
 
 	/** Delay between shots in seconds. Used to control fire rate for our test projectile, but also to prevent an overflow of server functions from binding SpawnProjectile directly to input.*/
 	UPROPERTY(EditDefaultsOnly, Category = "Player|Projectile")

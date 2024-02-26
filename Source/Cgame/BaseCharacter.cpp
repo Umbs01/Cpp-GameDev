@@ -6,6 +6,7 @@
 #include "Net/UnrealNetwork.h"
 #include "Engine/Engine.h"
 #include "CProjectile.h"
+#include "AimGuide.h"
 
 
 ///////////////////////////////////////////////////////////////
@@ -18,9 +19,13 @@ ABaseCharacter::ABaseCharacter()
 	SetActorTickInterval(0.5f);
 	SetActorTickEnabled(true);
 
-	//Initialize projectile class
+	// Initialize projectile class
 	ProjectileClass = ACProjectile::StaticClass();
 	bIsFiringWeapon = false;
+
+	// Initialize AimGuide class
+	AimGuideClass = AAimGuide::StaticClass();
+	bIsAiming = false;
   
 }
 
@@ -258,6 +263,34 @@ float ABaseCharacter::GetCurrentCharges()
 // Called when aiming & spawning in an AimGuide AActor
 void ABaseCharacter::Aim()
 {
+	// check if we have anough charges & if we're in the process of aiming before allowing the action to work
+	if (CurrentCharges >= 100.0f && bIsAiming == false)
+	{
+		bIsAiming = true;
+		HandleAim();
+	}
+}
+
+void ABaseCharacter::StopAim()
+{
+	bIsAiming = false;
+}
+
+// Function handling for aiming ( Does not replicate like HandleBlast() )
+void ABaseCharacter::HandleAim()
+{
+	// Get the Location & Rotations of the Actor to spawn the actor
+	FVector spawnLocation = GetActorLocation() + (GetControlRotation().Vector() * 100.0f) + (GetActorUpVector() + 10.0f);
+	FRotator spawnRotation = GetActorRotation();
+
+	// Get the spawn parameters
+	FActorSpawnParameters spawnParams;
+	spawnParams.Instigator = GetInstigator();
+	spawnParams.Owner = this;
+
+	// Spawn the AimGuide object
+	AAimGuide* spawnedAimGuide = GetWorld()->SpawnActor<AAimGuide>(spawnLocation, spawnRotation, spawnParams);
+	spawnedAimGuide->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
 
 }
 

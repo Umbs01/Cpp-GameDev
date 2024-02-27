@@ -6,6 +6,8 @@
 #include "Net/UnrealNetwork.h"
 #include "Engine/Engine.h"
 #include "CProjectile.h"
+#include "HUDBB.h"
+#include "Blueprint/UserWidget.h"
 #include "AimGuide.h"
 
 
@@ -26,6 +28,13 @@ ABaseCharacter::ABaseCharacter()
 	// Initialize AimGuide class
 	AimGuideClass = AAimGuide::StaticClass();
 	bIsAiming = false;
+
+	// HUD 
+	// PlayerHUDClass = nullptr;
+	PlayerHUD = nullptr;
+	// Initialize HUD
+	PlayerHUDClass = UHUDBB::StaticClass();
+
   
 }
 
@@ -45,6 +54,13 @@ void ABaseCharacter::BeginPlay()
 	Super::BeginPlay();
 	check(GEngine != nullptr);
 
+	if (IsLocallyControlled() && PlayerHUDClass)
+	{
+		PlayerHUD = CreateWidget<UHUDBB>(GetWorld(), PlayerHUDClass);
+		check(PlayerHUD)
+		PlayerHUD->AddToViewport();
+		// considering to remove when EndPlay() is called
+	}
 }
 
 // Called every frame

@@ -50,6 +50,18 @@ public:
 	/** Property replication */
 	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+	/*
+	* HUD
+	*/
+
+	/** Widget class  to spawn for the heads up display. */
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<class UUserWidget> PlayerHUDClass;
+
+	/** The instance of the HUD */
+	UPROPERTY()
+	class UHUDBB* PlayerHUD;
+
 #pragma region Health
 
 	// Return the player's current health

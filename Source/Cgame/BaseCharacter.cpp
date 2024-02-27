@@ -16,7 +16,7 @@ ABaseCharacter::ABaseCharacter()
 {
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	SetActorTickInterval(0.5f);
+	/*SetActorTickInterval(0.5f);*/
 	SetActorTickEnabled(true);
 
 	// Initialize projectile class
@@ -264,7 +264,7 @@ float ABaseCharacter::GetCurrentCharges()
 void ABaseCharacter::Aim()
 {
 	// check if we have anough charges & if we're in the process of aiming before allowing the action to work
-	if (CurrentCharges >= 100.0f && bIsAiming == false)
+	if (CurrentCharges >= 100.0f)
 	{
 		bIsAiming = true;
 		HandleAim();
@@ -280,12 +280,11 @@ void ABaseCharacter::StopAim()
 void ABaseCharacter::HandleAim()
 {
 	// Get the Location & Rotations of the Actor to spawn the actor
-	FVector spawnLocation = GetActorLocation() + (GetControlRotation().Vector() * 100.0f) + (GetActorUpVector() + 10.0f);
+	FVector spawnLocation = GetActorLocation() + (GetControlRotation().Vector() + 20.0f) + (GetActorUpVector() + 10.0f);
 	FRotator spawnRotation = GetActorRotation();
 
 	// Get the spawn parameters
 	FActorSpawnParameters spawnParams;
-	spawnParams.Instigator = GetInstigator();
 	spawnParams.Owner = this;
 
 	// Spawn the AimGuide object

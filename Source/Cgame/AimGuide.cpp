@@ -35,7 +35,7 @@ AAimGuide::AAimGuide()
 		StaticMesh->SetRelativeScale3D(FVector(0.4f, 0.26f, 1.0f));
 	}
 	
-	UMaterial* mats = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("/Game/MapBuilder/Glass1")));
+	UMaterial* mats = Cast<UMaterial>(StaticLoadObject(UMaterial::StaticClass(), NULL, TEXT("/Game/MapBuilder/Glass")));
 	StaticMesh->SetMaterial(0, mats);
 
 }

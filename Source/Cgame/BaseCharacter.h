@@ -60,7 +60,7 @@ public:
 
 	/** The instance of the HUD */
 	UPROPERTY()
-	class UHUDBB* PlayerHUD;
+	class UPlayerHUD* PlayerHUD;
 
 #pragma region Health
 

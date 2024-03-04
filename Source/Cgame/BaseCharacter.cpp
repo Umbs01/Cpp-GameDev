@@ -6,7 +6,7 @@
 #include "Net/UnrealNetwork.h"
 #include "Engine/Engine.h"
 #include "CProjectile.h"
-#include "HUDBB.h"
+#include "PlayerHUD.h"
 #include "Blueprint/UserWidget.h"
 #include "AimGuide.h"
 
@@ -33,7 +33,7 @@ ABaseCharacter::ABaseCharacter()
 	// PlayerHUDClass = nullptr;
 	PlayerHUD = nullptr;
 	// Initialize HUD
-	PlayerHUDClass = UHUDBB::StaticClass();
+	PlayerHUDClass = UPlayerHUD::StaticClass();
 
   
 }
@@ -56,7 +56,7 @@ void ABaseCharacter::BeginPlay()
 
 	if (IsLocallyControlled() && PlayerHUDClass)
 	{
-		PlayerHUD = CreateWidget<UHUDBB>(GetWorld(), PlayerHUDClass);
+		PlayerHUD = CreateWidget<UPlayerHUD>(GetWorld(), PlayerHUDClass);
 		check(PlayerHUD)
 		PlayerHUD->AddToViewport();
 		// considering to remove when EndPlay() is called

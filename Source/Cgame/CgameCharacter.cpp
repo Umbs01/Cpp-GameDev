@@ -32,6 +32,9 @@ ACgameCharacter::ACgameCharacter()
 	CameraBoom->SetupAttachment(GetRootComponent()); 
 	CameraBoom->TargetArmLength = 200.0f; // The camera follows at this distance behind the character	
 	CameraBoom->bDoCollisionTest = false; // Dont want to pull the camera in when collides with an object
+	
+	//FQuat CameraBoomRotation{ 0.0f, 0.0f, 300.0f, 0.0f };
+	//CameraBoom->SetWorldRotation(CameraBoomRotation);
 
 	// Making the camera stays fixed
 	CameraBoom->bInheritPitch = false;

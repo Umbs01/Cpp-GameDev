@@ -19,7 +19,6 @@ ABaseCharacter::ABaseCharacter()
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	/*SetActorTickInterval(0.5f);*/
-	SetActorTickEnabled(true);
 
 	// Initialize projectile class
 	ProjectileClass = ACProjectile::StaticClass();
@@ -111,6 +110,7 @@ void ABaseCharacter::Tick(float DeltaTime)
 	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Cyan,
 		*(FString::Printf(
 			TEXT("Super - Current:%f | Maximum:%f"), CurrentSuperProgress, MaxSuperProgress)));
+
 }
 
 void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

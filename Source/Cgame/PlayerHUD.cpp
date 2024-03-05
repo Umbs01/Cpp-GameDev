@@ -4,7 +4,7 @@
 #include "PlayerHUD.h"
 #include "Components/ProgressBar.h"
 
-void UPlayerHUD::SetHealth(float CurrentHealth, float MaxHealth)
+void UPlayerHUD::SetHealthBar(float CurrentHealth, float MaxHealth)
 {
 	if (HealthBar != nullptr)
 	{
@@ -13,7 +13,7 @@ void UPlayerHUD::SetHealth(float CurrentHealth, float MaxHealth)
 }
 
 // Set value for charges bar
-void UPlayerHUD::SetCharges(float CurrentCharges, float MaxCharge)
+void UPlayerHUD::SetChargesBar(float CurrentCharges, float MaxCharge)
 {
 	if (ChargesBar != nullptr)
 	{
@@ -22,7 +22,7 @@ void UPlayerHUD::SetCharges(float CurrentCharges, float MaxCharge)
 }
 
 // Set value for super progress bar
-void UPlayerHUD::SetSuperProgress(float CurrentSuperProgress, float MaxSuper)
+void UPlayerHUD::SetSuperProgressBar(float CurrentSuperProgress, float MaxSuper)
 {
 	if (SuperProgress != nullptr)
 	{

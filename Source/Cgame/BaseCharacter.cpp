@@ -341,7 +341,7 @@ void ABaseCharacter::StopBlast()
 void ABaseCharacter::HandleBlast_Implementation()
 {
 	// Get the Location & Rotations of the Actor to spawn the actor
-	FVector spawnLocation = GetActorLocation() + (GetActorRightVector() + 10.0f) + (GetActorUpVector() + 10.0f);
+	FVector spawnLocation = GetActorLocation() + (GetActorForwardVector() + 6.0f) + (GetActorUpVector() + 10.0f);
 	FRotator spawnRotation = GetActorRotation();
 
 	// Get the spawn parameters

@@ -193,7 +193,7 @@ protected:
 
 	/** Delay between shots in seconds. Used to control fire rate for our test projectile, but also to prevent an overflow of server functions from binding SpawnProjectile directly to input.*/
 	UPROPERTY(EditDefaultsOnly, Category = "Player|Projectile")
-	float FireRate = 0.25f;
+	float FireRate = 0.05f;
 
 	// A timer handle used for providing the fire rate delay in-between spawns.
 	FTimerHandle FiringTimer;

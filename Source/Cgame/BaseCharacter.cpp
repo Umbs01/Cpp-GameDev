@@ -18,7 +18,7 @@ ABaseCharacter::ABaseCharacter()
 {
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	/*SetActorTickInterval(0.5f);*/
+	SetActorTickInterval(0.025f);
 
 	// Initialize projectile class
 	ProjectileClass = ACProjectile::StaticClass();
@@ -341,8 +341,11 @@ void ABaseCharacter::StopBlast()
 void ABaseCharacter::HandleBlast_Implementation()
 {
 	// Get the Location & Rotations of the Actor to spawn the actor
-	FVector spawnLocation = GetActorLocation() + (GetActorForwardVector() + 6.0f) + (GetActorUpVector() + 10.0f);
+	FVector spawnLocation = GetActorLocation() + (GetActorForwardVector() + 10.0f) + (GetActorUpVector() + 10.0f);
 	FRotator spawnRotation = GetActorRotation();
+
+	FVector offset{ 0.0f, -10.0f, 0.0f };
+	spawnLocation = spawnLocation + offset;
 
 	// Get the spawn parameters
 	FActorSpawnParameters spawnParams;
@@ -351,5 +354,5 @@ void ABaseCharacter::HandleBlast_Implementation()
 
 	// Spawn the projectile
 	ACProjectile* spawnedProjectile = GetWorld()->SpawnActor<ACProjectile>(spawnLocation, spawnRotation, spawnParams);
-
+	spawnedProjectile->SetLifeSpan(0.05f);
 }

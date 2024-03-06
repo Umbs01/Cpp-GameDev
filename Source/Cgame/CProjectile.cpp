@@ -19,7 +19,7 @@ ACProjectile::ACProjectile()
 
 	//Definition for the SphereComponent that will serve as the Root component for the projectile and its collision.
 	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("RootComponent"));
-	SphereComponent->InitSphereRadius(12.5f);
+	SphereComponent->InitSphereRadius(10.5f);
 	SphereComponent->SetCollisionProfileName(TEXT("BlockAllDynamic"));
 	RootComponent = SphereComponent;
 

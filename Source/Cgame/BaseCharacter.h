@@ -35,13 +35,13 @@ private:
 	static constexpr float Damage = 950.0f;
 	static constexpr float Charges = 300.0f; // 300 -> 100 per shots for 3 maximum
 	float CurrentCharges = Charges;
-	float ChargeRecuperationFactor = 20.f; // Rate at which charges are recharged
+	float ChargeRecuperationFactor = 0.75f; // Rate at which charges are recharged
 
 	// Super
 	static constexpr float BaseSuperProgress = 0.0f;
 	static constexpr float MaxSuperProgress = 1000.0f;
 	float CurrentSuperProgress = BaseSuperProgress;
-	float SuperRecuperationFactor = 5.0f; // Rate at which super is recharged
+	float SuperRecuperationFactor = 0.25f; // Rate at which super is recharged
 
 public:
 	// Default Class constructor
@@ -49,10 +49,6 @@ public:
 
 	/** Property replication */
 	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
-	/*
-	* HUD
-	*/
 
 	/** Widget class  to spawn for the heads up display. */
 	UPROPERTY(EditAnywhere)

@@ -101,7 +101,7 @@ void ABaseCharacter::Tick(float DeltaTime)
 	}
 #pragma endregion
 
-	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Red,
+	/*GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Red,
 		*(FString::Printf(
 			TEXT("Health - Current:%f | Maximum:%f"), CurrentHealth, MaxHealth)));
 	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Green,
@@ -109,7 +109,7 @@ void ABaseCharacter::Tick(float DeltaTime)
 			TEXT("Charges - Current:%f | Maximum:%f"), CurrentCharges, Charges)));
 	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Cyan,
 		*(FString::Printf(
-			TEXT("Super - Current:%f | Maximum:%f"), CurrentSuperProgress, MaxSuperProgress)));
+			TEXT("Super - Current:%f | Maximum:%f"), CurrentSuperProgress, MaxSuperProgress)));*/
 
 }
 

@@ -15,7 +15,7 @@
 ACgameCharacter::ACgameCharacter()
 {
 	// Create An Actor Character
-	GetCapsuleComponent()->InitCapsuleSize(12.f, 12.0f);// Set size for collision capsule
+	GetCapsuleComponent()->InitCapsuleSize(14.f, 20.0f);// Set size for collision capsule
 
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
@@ -33,13 +33,13 @@ ACgameCharacter::ACgameCharacter()
 	CameraBoom->TargetArmLength = 200.0f; // The camera follows at this distance behind the character	
 	CameraBoom->bDoCollisionTest = false; // Dont want to pull the camera in when collides with an object
 	
-	//FQuat CameraBoomRotation{ 0.0f, 0.0f, 300.0f, 0.0f };
-	//CameraBoom->SetWorldRotation(CameraBoomRotation);
+	FTransform CameraBoomTransform(FRotator(290.0f, 0.0f, 0.0f).Quaternion());
+	CameraBoom->SetRelativeTransform(CameraBoomTransform);
 
 	// Making the camera stays fixed
 	CameraBoom->bInheritPitch = false;
 	CameraBoom->bInheritRoll = false;
-	CameraBoom->bInheritYaw = false;
+	CameraBoom->bInheritYaw = false;GetCapsuleComponent()->InitCapsuleSize(14.f, 20.0f);// Set size for collision capsule
 
 	// Create a follow camera
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));

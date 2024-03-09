@@ -15,7 +15,7 @@
 ACgameCharacter::ACgameCharacter()
 {
 	// Create An Actor Character
-	GetCapsuleComponent()->InitCapsuleSize(12.f, 12.0f);// Set size for collision capsule
+	GetCapsuleComponent()->InitCapsuleSize(14.f, 20.0f);// Set size for collision capsule
 
 	// Don't rotate when the controller rotates. Let that just affect the camera.
 	bUseControllerRotationPitch = false;
@@ -30,13 +30,16 @@ ACgameCharacter::ACgameCharacter()
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(GetRootComponent()); 
-	CameraBoom->TargetArmLength = 200.0f; // The	camera follows at this distance behind the character	
+	CameraBoom->TargetArmLength = 200.0f; // The camera follows at this distance behind the character	
 	CameraBoom->bDoCollisionTest = false; // Dont want to pull the camera in when collides with an object
+	
+	FTransform CameraBoomTransform(FRotator(290.0f, 0.0f, 0.0f).Quaternion());
+	CameraBoom->SetRelativeTransform(CameraBoomTransform);
 
 	// Making the camera stays fixed
 	CameraBoom->bInheritPitch = false;
 	CameraBoom->bInheritRoll = false;
-	CameraBoom->bInheritYaw = false;
+	CameraBoom->bInheritYaw = false;GetCapsuleComponent()->InitCapsuleSize(14.f, 20.0f);// Set size for collision capsule
 
 	// Create a follow camera
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
@@ -58,40 +61,6 @@ void ACgameCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInp
 	PlayerInputComponent->BindAxis("MoveForward", this, &ACgameCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ACgameCharacter::MoveRight);
 
-	//// We have 2 versions of the rotation bindings to handle different kinds of devices differently
-	//// "turn" handles devices that provide an absolute delta, such as a mouse.
-	//// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
-	
-	// NOTE* we'll be using these as a reference to aiming
-	//PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
-	//PlayerInputComponent->BindAxis("TurnRate", this, &ACgameCharacter::TurnAtRate);
-
-	// handle touch devices
-	PlayerInputComponent->BindTouch(IE_Pressed, this, &ACgameCharacter::TouchStarted);
-	PlayerInputComponent->BindTouch(IE_Released, this, &ACgameCharacter::TouchStopped);
-
-}
-
-void ACgameCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		Jump();
-}
-
-void ACgameCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		StopJumping();
-}
-
-void ACgameCharacter::TurnAtRate(float Rate)
-{
-	// calculate delta for this frame from the rate information
-	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
-}
-
-void ACgameCharacter::LookUpAtRate(float Rate)
-{
-	// calculate delta for this frame from the rate information
-	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
 
 void ACgameCharacter::MoveForward(float Value)

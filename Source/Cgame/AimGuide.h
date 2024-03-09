@@ -15,12 +15,17 @@ public:
 	// Sets default values for this actor's properties
 	AAimGuide();
 
+	// Box component used to test collision.
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+	class UBoxComponent* BoxComponent;
+
+	// Skeletal Mesh used to provide a visual representation of the object.
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+	class UStaticMeshComponent* StaticMesh;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UBoxComponent* BoxComp;
 
 public:	
 	// Called every frame

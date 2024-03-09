@@ -16,5 +16,4 @@ protected:
 
 private:
 	GENERATED_BODY()
-	
 };

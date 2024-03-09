@@ -35,13 +35,13 @@ private:
 	static constexpr float Damage = 950.0f;
 	static constexpr float Charges = 300.0f; // 300 -> 100 per shots for 3 maximum
 	float CurrentCharges = Charges;
-	float ChargeRecuperationFactor = 20.f; // Rate at which charges are recharged
+	float ChargeRecuperationFactor = 0.75f; // Rate at which charges are recharged
 
 	// Super
 	static constexpr float BaseSuperProgress = 0.0f;
 	static constexpr float MaxSuperProgress = 1000.0f;
 	float CurrentSuperProgress = BaseSuperProgress;
-	float SuperRecuperationFactor = 5.0f; // Rate at which super is recharged
+	float SuperRecuperationFactor = 0.25f; // Rate at which super is recharged
 
 public:
 	// Default Class constructor
@@ -49,6 +49,14 @@ public:
 
 	/** Property replication */
 	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+	/** Widget class  to spawn for the heads up display. */
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<class UUserWidget> PlayerHUDClass;
+
+	/** The instance of the HUD */
+	UPROPERTY()
+	class UPlayerHUD* PlayerHUD;
 
 #pragma region Health
 
@@ -129,9 +137,29 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Player|Damage")
 	float GetCurrentCharges();
 
-	// player fire the weapon!
+	// Called when aiming & spawning in an AimGuide AActor
+	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
+	void Aim();
+
+	// Called when stop aiming & deleting an exising AimGuide AActor
+	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
+	void StopAim();
+
+	// Function handling for aiming ( Does not replicate like HandleBlast() )
+	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
+	void HandleAim();
+
+	// Called when player fire the weapon!
 	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
 	void Blast();
+
+	// Called when ending weapon fire.Once this is called, the player can use StartFire again.* /
+	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
+	void StopBlast();
+
+	// Server function for spawning projectiles.
+	UFUNCTION(Server, Reliable)
+	void HandleBlast();
 
 	// Triggered when the players charges is updated.
 	UPROPERTY(BlueprintAssignable, Category = "Player|Damage")
@@ -147,8 +175,30 @@ protected:
 	UPROPERTY(ReplicatedUsing = OnHealthUpdate)
 	float CurrentHealth = BaseHealth;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Player|Projectile")
+	TSubclassOf<class ACProjectile> ProjectileClass;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Player|Damage")
+	TSubclassOf<class AAimGuide> AimGuideClass;
+
+	// If true, we are in the process of firing projectiles. 
+	bool bIsFiringWeapon;
+
+	// If true, we are in the process of aiming.
+	bool bIsAiming;
+
+	/** Delay between shots in seconds. Used to control fire rate for our test projectile, but also to prevent an overflow of server functions from binding SpawnProjectile directly to input.*/
+	UPROPERTY(EditDefaultsOnly, Category = "Player|Projectile")
+	float FireRate = 0.05f;
+
+	// A timer handle used for providing the fire rate delay in-between spawns.
+	FTimerHandle FiringTimer;
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	// APawn input interface
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 };

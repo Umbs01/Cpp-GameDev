@@ -5,6 +5,10 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "Engine/Engine.h"
+#include "CProjectile.h"
+#include "PlayerHUD.h"
+#include "Blueprint/UserWidget.h"
+#include "AimGuide.h"
 
 
 ///////////////////////////////////////////////////////////////
@@ -14,8 +18,23 @@ ABaseCharacter::ABaseCharacter()
 {
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	SetActorTickInterval(0.5f);
-	SetActorTickEnabled(true);
+	SetActorTickInterval(0.025f);
+
+	// Initialize projectile class
+	ProjectileClass = ACProjectile::StaticClass();
+	bIsFiringWeapon = false;
+
+	// Initialize AimGuide class
+	AimGuideClass = AAimGuide::StaticClass();
+	bIsAiming = false;
+
+	// HUD 
+	// PlayerHUDClass = nullptr;
+	PlayerHUD = nullptr;
+	// Initialize HUD
+	PlayerHUDClass = UPlayerHUD::StaticClass();
+
+  
 }
 
 // Replicated Properties
@@ -34,6 +53,13 @@ void ABaseCharacter::BeginPlay()
 	Super::BeginPlay();
 	check(GEngine != nullptr);
 
+	if (IsLocallyControlled() && PlayerHUDClass)
+	{
+		PlayerHUD = CreateWidget<UPlayerHUD>(GetWorld(), PlayerHUDClass);
+		check(PlayerHUD)
+		PlayerHUD->AddToViewport();
+		// considering to remove when EndPlay() is called
+	}
 }
 
 // Called every frame
@@ -75,7 +101,7 @@ void ABaseCharacter::Tick(float DeltaTime)
 	}
 #pragma endregion
 
-	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Red,
+	/*GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Red,
 		*(FString::Printf(
 			TEXT("Health - Current:%f | Maximum:%f"), CurrentHealth, MaxHealth)));
 	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Green,
@@ -83,7 +109,17 @@ void ABaseCharacter::Tick(float DeltaTime)
 			TEXT("Charges - Current:%f | Maximum:%f"), CurrentCharges, Charges)));
 	GEngine->AddOnScreenDebugMessage(-1, 0.49f, FColor::Cyan,
 		*(FString::Printf(
-			TEXT("Super - Current:%f | Maximum:%f"), CurrentSuperProgress, MaxSuperProgress)));
+			TEXT("Super - Current:%f | Maximum:%f"), CurrentSuperProgress, MaxSuperProgress)));*/
+
+}
+
+void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+{
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	// Handle firing projectiles
+	PlayerInputComponent->BindAction("Aim", IE_Pressed, this, &ABaseCharacter::Aim);
+	PlayerInputComponent->BindAction("Fire", IE_Released , this, &ABaseCharacter::Blast);
 }
 
 //////////////////////////////////////////////////////////////////
@@ -240,15 +276,52 @@ float ABaseCharacter::GetCurrentCharges()
 	return CurrentCharges;
 }
 
-// player fire the weapon!
+// Called when aiming & spawning in an AimGuide AActor
+void ABaseCharacter::Aim()
+{
+	// check if we have anough charges & if we're in the process of aiming before allowing the action to work
+	if (CurrentCharges >= 100.0f)
+	{
+		bIsAiming = true;
+		HandleAim();
+	}
+}
+
+void ABaseCharacter::StopAim()
+{
+	bIsAiming = false;
+}
+
+// Function handling for aiming ( Does not replicate like HandleBlast() )
+void ABaseCharacter::HandleAim()
+{
+	// Get the Location & Rotations of the Actor to spawn the actor
+	FVector spawnLocation = GetActorLocation() + (GetControlRotation().Vector() + 20.0f) + (GetActorUpVector() + 10.0f);
+	FRotator spawnRotation = GetActorRotation();
+
+	// Get the spawn parameters
+	FActorSpawnParameters spawnParams;
+	spawnParams.Owner = this;
+
+	// Spawn the AimGuide object
+	AAimGuide* spawnedAimGuide = GetWorld()->SpawnActor<AAimGuide>(spawnLocation, spawnRotation, spawnParams);
+	spawnedAimGuide->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
+
+}
+
+// Called when player fire the weapon!
 void ABaseCharacter::Blast()
 {
 	// the cost to fire once is 100.0f
 	// check if we have anough charges before allowing the action to work
 	if (CurrentCharges >= 100.0f)
 	{
-		// Do the Busting
-		// Debugging
+		bIsFiringWeapon = true;
+		UWorld* World = GetWorld();
+		World->GetTimerManager().SetTimer(FiringTimer, this, &ABaseCharacter::StopBlast, FireRate, false);
+		HandleBlast();
+
+		// Debugging 
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Blue,
 			*(FString::Printf(
 				TEXT("BOOOM"))));
@@ -256,4 +329,30 @@ void ABaseCharacter::Blast()
 		// Deduct the charge used
 		CurrentCharges -= 100.0f;
 	}
+}
+
+// Called when ending weapon fire.Once this is called, the player can use StartFire again.* /
+void ABaseCharacter::StopBlast()
+{
+	bIsFiringWeapon = false;
+}
+
+// Server function for spawning projectiles.
+void ABaseCharacter::HandleBlast_Implementation()
+{
+	// Get the Location & Rotations of the Actor to spawn the actor
+	FVector spawnLocation = GetActorLocation() + (GetActorForwardVector() + 10.0f) + (GetActorUpVector() + 10.0f);
+	FRotator spawnRotation = GetActorRotation();
+
+	FVector offset{ 0.0f, -10.0f, 0.0f };
+	spawnLocation = spawnLocation + offset;
+
+	// Get the spawn parameters
+	FActorSpawnParameters spawnParams;
+	spawnParams.Instigator = GetInstigator();
+	spawnParams.Owner = this;
+
+	// Spawn the projectile
+	ACProjectile* spawnedProjectile = GetWorld()->SpawnActor<ACProjectile>(spawnLocation, spawnRotation, spawnParams);
+	spawnedProjectile->SetLifeSpan(0.05f);
 }

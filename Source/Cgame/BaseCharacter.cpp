@@ -338,14 +338,17 @@ void ABaseCharacter::StopBlast()
 }
 
 // Server function for spawning projectiles.
-void ABaseCharacter::HandleBlast_Implementation()
+void ABaseCharacter::HandleBlast_Implementation() 
 {
 	// Get the Location & Rotations of the Actor to spawn the actor
-	FVector spawnLocation = GetActorLocation() + (GetActorForwardVector() + 10.0f) + (GetActorUpVector() + 10.0f);
+	FVector spawnLocation = GetActorLocation() + (GetActorForwardVector() + 10.f) + (GetActorUpVector() + 10.0f);
 	FRotator spawnRotation = GetActorRotation();
 
-	FVector offset{ 0.0f, -10.0f, 0.0f };
-	spawnLocation = spawnLocation + offset;
+	// offset the spawnLocation reletive to spawnRotation
+	if (spawnRotation.Yaw < 0)
+	{
+		spawnLocation += (GetActorForwardVector() + 10.f);
+	}
 
 	// Get the spawn parameters
 	FActorSpawnParameters spawnParams;
@@ -355,4 +358,5 @@ void ABaseCharacter::HandleBlast_Implementation()
 	// Spawn the projectile
 	ACProjectile* spawnedProjectile = GetWorld()->SpawnActor<ACProjectile>(spawnLocation, spawnRotation, spawnParams);
 	spawnedProjectile->SetLifeSpan(0.05f);
+
 }

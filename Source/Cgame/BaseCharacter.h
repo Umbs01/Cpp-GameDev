@@ -117,6 +117,10 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Player|Super")
 	float GetSuperRecuperationFactor();
 
+	//Update Super Progress
+	UFUNCTION(BlueprintCallable, Category = "Player|Super")
+	void UpdateSuperProgress();
+
 	// Set the player's recuperation factor
 	UFUNCTION(BlueprintCallable, Category = "Player|Super")
 	void SetSuperRecuperationFactor(float NewRecupertaionFactor);
@@ -136,6 +140,10 @@ public:
 	// Return the player's current charges
 	UFUNCTION(BlueprintPure, Category = "Player|Damage")
 	float GetCurrentCharges();
+
+	// Update the player's charges
+	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
+	void UpdateChargesProgress();
 
 	// Called when aiming & spawning in an AimGuide AActor
 	UFUNCTION(BlueprintCallable, Category = "Player|Damage")

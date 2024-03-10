@@ -55,9 +55,16 @@ void ABaseCharacter::BeginPlay()
 
 	if (IsLocallyControlled() && PlayerHUDClass)
 	{
-		PlayerHUD = CreateWidget<UPlayerHUD>(GetWorld(), PlayerHUDClass);
+		// Get Player Controller
+		APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+		check(PlayerController);
+
+		PlayerHUD = CreateWidget<UPlayerHUD>(PlayerController, PlayerHUDClass);
 		check(PlayerHUD)
 		PlayerHUD->AddToViewport();
+		PlayerHUD->SetHealthBar(CurrentHealth, MaxHealth);
+		PlayerHUD->SetChargesBar(CurrentCharges, Charges);
+		PlayerHUD->SetSuperProgressBar(CurrentSuperProgress, MaxSuperProgress);
 		// considering to remove when EndPlay() is called
 	}
 }
@@ -204,6 +211,7 @@ void ABaseCharacter::OnHealthUpdate()
 	{
 		FString healthMessage = FString::Printf(TEXT("You now have %f health remaining."), CurrentHealth);
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, healthMessage);
+		PlayerHUD->SetHealthBar(CurrentHealth, MaxHealth);
 
 		if (CurrentHealth <= 0)
 		{
@@ -251,6 +259,16 @@ void ABaseCharacter::SetSuperRecuperationFactor(float NewRecupertaionFactor)
 	SuperRecuperationFactor = NewRecupertaionFactor;
 }
 
+// Update Super Progress
+void ABaseCharacter::UpdateSuperProgress()
+{
+	if (PlayerHUD)
+	{
+		PlayerHUD->SetSuperProgressBar(CurrentSuperProgress, MaxSuperProgress);
+	
+	}
+}
+
 // player unleashed their super attack!
 void ABaseCharacter::SuperMove()
 {
@@ -274,6 +292,15 @@ void ABaseCharacter::SuperMove()
 float ABaseCharacter::GetCurrentCharges()
 {
 	return CurrentCharges;
+}
+
+// Update the player's charges
+void ABaseCharacter::UpdateChargesProgress()
+{
+	if (PlayerHUD)
+	{
+		PlayerHUD->SetChargesBar(CurrentCharges, Charges);
+	}
 }
 
 // Called when aiming & spawning in an AimGuide AActor

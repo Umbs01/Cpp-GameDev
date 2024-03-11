@@ -10,6 +10,7 @@
 #include "Blueprint/UserWidget.h"
 #include "AimGuide.h"
 #include <cmath>
+#include <Cgame/BRGameMode.h>
 
 ///////////////////////////////////////////////////////////////
 // ABaseCharacter
@@ -217,6 +218,14 @@ void ABaseCharacter::OnHealthUpdate()
 		{
 			FString deathMessage = FString::Printf(TEXT("You have been killed."));
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, deathMessage);
+			
+			if (HasAuthority())
+			{
+				if (ABRGameMode* GM = GetWorld()->GetAuthGameMode<ABRGameMode>())
+				{
+					GM->PlayerDied();
+				}
+			}
 		}
 	}
 
@@ -227,10 +236,6 @@ void ABaseCharacter::OnHealthUpdate()
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, healthMessage);
 	}
 
-	//Functions that occur on all machines. 
-	/*
-		Any special functionality that should occur as a result of damage or death should be placed here.
-	*/
 }
 
 
@@ -341,7 +346,7 @@ void ABaseCharacter::Blast()
 {
 	// the cost to fire once is 100.0f
 	// check if we have anough charges before allowing the action to work
-	if (CurrentCharges >= 100.0f)
+	if (CurrentCharges >= 100.0f && bIsFiringWeapon == false)
 	{
 		bIsFiringWeapon = true;
 		UWorld* World = GetWorld();

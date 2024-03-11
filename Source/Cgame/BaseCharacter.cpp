@@ -9,7 +9,7 @@
 #include "PlayerHUD.h"
 #include "Blueprint/UserWidget.h"
 #include "AimGuide.h"
-
+#include <cmath>
 
 ///////////////////////////////////////////////////////////////
 // ABaseCharacter
@@ -368,14 +368,8 @@ void ABaseCharacter::StopBlast()
 void ABaseCharacter::HandleBlast_Implementation() 
 {
 	// Get the Location & Rotations of the Actor to spawn the actor
-	FVector spawnLocation = GetActorLocation() + (GetActorForwardVector() + 10.f) + (GetActorUpVector() + 10.0f);
+	FVector spawnLocation = GetActorLocation() + (GetActorForwardVector() * 35.f) ;
 	FRotator spawnRotation = GetActorRotation();
-
-	// offset the spawnLocation reletive to spawnRotation
-	if (spawnRotation.Yaw < 0)
-	{
-		spawnLocation += (GetActorForwardVector() + 10.f);
-	}
 
 	// Get the spawn parameters
 	FActorSpawnParameters spawnParams;
@@ -384,6 +378,6 @@ void ABaseCharacter::HandleBlast_Implementation()
 
 	// Spawn the projectile
 	ACProjectile* spawnedProjectile = GetWorld()->SpawnActor<ACProjectile>(spawnLocation, spawnRotation, spawnParams);
-	spawnedProjectile->SetLifeSpan(0.05f);
+	spawnedProjectile->SetLifeSpan(0.08f);
 
 }

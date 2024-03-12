@@ -384,6 +384,6 @@ void ABaseCharacter::HandleBlast_Implementation()
 
 	// Spawn the projectile
 	ACProjectile* spawnedProjectile = GetWorld()->SpawnActor<ACProjectile>(spawnLocation, spawnRotation, spawnParams);
-	spawnedProjectile->SetLifeSpan(0.08f);
+	spawnedProjectile->SetLifeSpan(0.06f);
 
 }

@@ -24,6 +24,11 @@ public:
 	UPROPERTY(EditAnyWhere, BlueprintReadWrite, ReplicatedUsing = OnRep_CurrentPlayers)
 	int CurrentPlayers;
 
+	UPROPERTY(EditAnyWhere, BlueprintReadWrite)
+	int MatchStartCountDown = 5;
+
+public:
+
 	// get the number of remaining players in the match
 	UFUNCTION(BlueprintPure, Category = "Player")
 	int GetCurrentPlayers();

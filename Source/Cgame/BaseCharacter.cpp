@@ -35,7 +35,6 @@ ABaseCharacter::ABaseCharacter()
 	// Initialize HUD
 	PlayerHUDClass = UPlayerHUD::StaticClass();
 
-  
 }
 
 // Replicated Properties
@@ -54,19 +53,33 @@ void ABaseCharacter::BeginPlay()
 	Super::BeginPlay();
 	check(GEngine != nullptr);
 
-	if (IsLocallyControlled() && PlayerHUDClass)
+	if (HasAuthority())
 	{
 		// Get Player Controller
-		APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
-		check(PlayerController);
+		FConstPlayerControllerIterator PlayerControllerIterator = GetWorld()->GetPlayerControllerIterator();
+		
+		// Iterate over player controllers
+		for (PlayerControllerIterator; PlayerControllerIterator; ++PlayerControllerIterator)
+		{
+			APlayerController* PlayerController = PlayerControllerIterator->Get();
+			check(PlayerController);
 
-		PlayerHUD = CreateWidget<UPlayerHUD>(PlayerController, PlayerHUDClass);
-		check(PlayerHUD)
-		PlayerHUD->AddToViewport();
-		PlayerHUD->SetHealthBar(CurrentHealth, MaxHealth);
-		PlayerHUD->SetChargesBar(CurrentCharges, Charges);
-		PlayerHUD->SetSuperProgressBar(CurrentSuperProgress, MaxSuperProgress);
-		// considering to remove when EndPlay() is called
+			PlayerHUD = CreateWidget<UPlayerHUD, APlayerController>(PlayerController, PlayerHUDClass);
+			if (PlayerHUD)
+			{
+				PlayerHUD->AddToViewport();
+				PlayerHUD->SetHealthBar(CurrentHealth, MaxHealth);
+				PlayerHUD->SetChargesBar(CurrentCharges, Charges);
+				PlayerHUD->SetSuperProgressBar(CurrentSuperProgress, MaxSuperProgress);
+				// considering to remove when EndPlay() is called
+			}
+			else {
+				UE_LOG(LogTemp, Error, TEXT("Failed to create PlayerHUD widget"));
+			}
+
+			FString healthMessage = FString::Printf(TEXT("haha"));
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, healthMessage);
+		}
 	}
 }
 

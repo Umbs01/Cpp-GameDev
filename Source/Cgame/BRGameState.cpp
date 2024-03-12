@@ -18,12 +18,16 @@ void ABRGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 
 void ABRGameState::OnRep_CurrentPlayers()
 {
-	UE_LOG(LogTemp, Warning, TEXT("client: %d players remaining"), CurrentPlayers);
+	FString deathMessage = FString::Printf(TEXT("client: %d players remaining"), CurrentPlayers);
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, deathMessage);
 }
 
 void ABRGameState::PlayerDied()
 {
-	CurrentPlayers--;
-	UE_LOG(LogTemp, Warning, TEXT("server: %d players remaining"), CurrentPlayers);
+	if (HasAuthority())
+	{
+		CurrentPlayers--;
+		UE_LOG(LogTemp, Warning, TEXT("server: %d players remaining"), CurrentPlayers);
+	}
 }
 

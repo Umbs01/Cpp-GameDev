@@ -219,25 +219,26 @@ void ABaseCharacter::OnHealthUpdate()
 			FString deathMessage = FString::Printf(TEXT("You have been killed."));
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, deathMessage);
 			
-			if (HasAuthority())
-			{
-				if (ABRGameMode* GM = GetWorld()->GetAuthGameMode<ABRGameMode>())
-				{
-					GM->PlayerDied();
-				}
-			}
 		}
 	}
 
 	//Server-specific functionality
-	if (GetLocalRole() == ROLE_Authority)
+	if (HasAuthority())
 	{
 		FString healthMessage = FString::Printf(TEXT("%s now has %f health remaining."), *GetFName().ToString(), CurrentHealth);
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, healthMessage);
+
+		if (CurrentHealth <= 0)
+		{
+			// Cast to BRGameMode and let it call function PlayerDied()
+			if (ABRGameMode* GM = GetWorld()->GetAuthGameMode<ABRGameMode>())
+			{
+				GM->PlayerDied();
+			}
+		}
 	}
 
 }
-
 
 // Return the player's current Super Recharge Progress
 float ABaseCharacter::GetCurrentSuperProgress()

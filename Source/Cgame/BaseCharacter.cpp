@@ -53,33 +53,22 @@ void ABaseCharacter::BeginPlay()
 	Super::BeginPlay();
 	check(GEngine != nullptr);
 
-	if (HasAuthority())
+	if (IsLocallyControlled())
 	{
 		// Get Player Controller
-		FConstPlayerControllerIterator PlayerControllerIterator = GetWorld()->GetPlayerControllerIterator();
 		
-		// Iterate over player controllers
-		for (PlayerControllerIterator; PlayerControllerIterator; ++PlayerControllerIterator)
-		{
-			APlayerController* PlayerController = PlayerControllerIterator->Get();
-			check(PlayerController);
+		APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+		check(PlayerController);
 
-			PlayerHUD = CreateWidget<UPlayerHUD, APlayerController>(PlayerController, PlayerHUDClass);
-			if (PlayerHUD)
-			{
-				PlayerHUD->AddToViewport();
-				PlayerHUD->SetHealthBar(CurrentHealth, MaxHealth);
-				PlayerHUD->SetChargesBar(CurrentCharges, Charges);
-				PlayerHUD->SetSuperProgressBar(CurrentSuperProgress, MaxSuperProgress);
-				// considering to remove when EndPlay() is called
-			}
-			else {
-				UE_LOG(LogTemp, Error, TEXT("Failed to create PlayerHUD widget"));
-			}
+		PlayerHUD = CreateWidget<UPlayerHUD, APlayerController>(PlayerController, PlayerHUDClass);
+		check(PlayerHUD)
+		
+		PlayerHUD->AddToViewport();
+		PlayerHUD->SetHealthBar(CurrentHealth, MaxHealth);
+		PlayerHUD->SetChargesBar(CurrentCharges, Charges);
+		PlayerHUD->SetSuperProgressBar(CurrentSuperProgress, MaxSuperProgress);
+		// considering to remove when EndPlay() is called
 
-			FString healthMessage = FString::Printf(TEXT("haha"));
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, healthMessage);
-		}
 	}
 }
 

@@ -41,7 +41,7 @@ private:
 	static constexpr float BaseSuperProgress = 0.0f;
 	static constexpr float MaxSuperProgress = 1000.0f;
 	float CurrentSuperProgress = BaseSuperProgress;
-	float SuperRecuperationFactor = 0.25f; // Rate at which super is recharged
+	float SuperRecuperationFactor = 1.f; // Rate at which super is recharged
 
 public:
 	// Default Class constructor

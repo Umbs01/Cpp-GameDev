@@ -9,7 +9,8 @@
 #include "PlayerHUD.h"
 #include "Blueprint/UserWidget.h"
 #include "AimGuide.h"
-
+#include <cmath>
+#include <Cgame/BRGameMode.h>
 
 ///////////////////////////////////////////////////////////////
 // ABaseCharacter
@@ -34,7 +35,6 @@ ABaseCharacter::ABaseCharacter()
 	// Initialize HUD
 	PlayerHUDClass = UPlayerHUD::StaticClass();
 
-  
 }
 
 // Replicated Properties
@@ -53,12 +53,22 @@ void ABaseCharacter::BeginPlay()
 	Super::BeginPlay();
 	check(GEngine != nullptr);
 
-	if (IsLocallyControlled() && PlayerHUDClass)
+	if (IsLocallyControlled())
 	{
-		PlayerHUD = CreateWidget<UPlayerHUD>(GetWorld(), PlayerHUDClass);
+		// Get Player Controller
+		
+		APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+		check(PlayerController);
+
+		PlayerHUD = CreateWidget<UPlayerHUD, APlayerController>(PlayerController, PlayerHUDClass);
 		check(PlayerHUD)
+		
 		PlayerHUD->AddToViewport();
+		PlayerHUD->SetHealthBar(CurrentHealth, MaxHealth);
+		PlayerHUD->SetChargesBar(CurrentCharges, Charges);
+		PlayerHUD->SetSuperProgressBar(CurrentSuperProgress, MaxSuperProgress);
 		// considering to remove when EndPlay() is called
+
 	}
 }
 
@@ -204,27 +214,33 @@ void ABaseCharacter::OnHealthUpdate()
 	{
 		FString healthMessage = FString::Printf(TEXT("You now have %f health remaining."), CurrentHealth);
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, healthMessage);
+		PlayerHUD->SetHealthBar(CurrentHealth, MaxHealth);
 
 		if (CurrentHealth <= 0)
 		{
 			FString deathMessage = FString::Printf(TEXT("You have been killed."));
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, deathMessage);
+			
 		}
 	}
 
 	//Server-specific functionality
-	if (GetLocalRole() == ROLE_Authority)
+	if (HasAuthority())
 	{
 		FString healthMessage = FString::Printf(TEXT("%s now has %f health remaining."), *GetFName().ToString(), CurrentHealth);
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, healthMessage);
+
+		if (CurrentHealth <= 0)
+		{
+			// Cast to BRGameMode and let it call function PlayerDied()
+			if (ABRGameMode* GM = GetWorld()->GetAuthGameMode<ABRGameMode>())
+			{
+				GM->PlayerDied();
+			}
+		}
 	}
 
-	//Functions that occur on all machines. 
-	/*
-		Any special functionality that should occur as a result of damage or death should be placed here.
-	*/
 }
-
 
 // Return the player's current Super Recharge Progress
 float ABaseCharacter::GetCurrentSuperProgress()
@@ -251,6 +267,16 @@ void ABaseCharacter::SetSuperRecuperationFactor(float NewRecupertaionFactor)
 	SuperRecuperationFactor = NewRecupertaionFactor;
 }
 
+// Update Super Progress
+void ABaseCharacter::UpdateSuperProgress()
+{
+	if (PlayerHUD)
+	{
+		PlayerHUD->SetSuperProgressBar(CurrentSuperProgress, MaxSuperProgress);
+	
+	}
+}
+
 // player unleashed their super attack!
 void ABaseCharacter::SuperMove()
 {
@@ -274,6 +300,15 @@ void ABaseCharacter::SuperMove()
 float ABaseCharacter::GetCurrentCharges()
 {
 	return CurrentCharges;
+}
+
+// Update the player's charges
+void ABaseCharacter::UpdateChargesProgress()
+{
+	if (PlayerHUD)
+	{
+		PlayerHUD->SetChargesBar(CurrentCharges, Charges);
+	}
 }
 
 // Called when aiming & spawning in an AimGuide AActor
@@ -314,7 +349,7 @@ void ABaseCharacter::Blast()
 {
 	// the cost to fire once is 100.0f
 	// check if we have anough charges before allowing the action to work
-	if (CurrentCharges >= 100.0f)
+	if (CurrentCharges >= 100.0f && bIsFiringWeapon == false)
 	{
 		bIsFiringWeapon = true;
 		UWorld* World = GetWorld();
@@ -338,14 +373,11 @@ void ABaseCharacter::StopBlast()
 }
 
 // Server function for spawning projectiles.
-void ABaseCharacter::HandleBlast_Implementation()
+void ABaseCharacter::HandleBlast_Implementation() 
 {
 	// Get the Location & Rotations of the Actor to spawn the actor
-	FVector spawnLocation = GetActorLocation() + (GetActorForwardVector() + 10.0f) + (GetActorUpVector() + 10.0f);
+	FVector spawnLocation = GetActorLocation() + (GetActorForwardVector() * 35.f) ;
 	FRotator spawnRotation = GetActorRotation();
-
-	FVector offset{ 0.0f, -10.0f, 0.0f };
-	spawnLocation = spawnLocation + offset;
 
 	// Get the spawn parameters
 	FActorSpawnParameters spawnParams;
@@ -354,5 +386,6 @@ void ABaseCharacter::HandleBlast_Implementation()
 
 	// Spawn the projectile
 	ACProjectile* spawnedProjectile = GetWorld()->SpawnActor<ACProjectile>(spawnLocation, spawnRotation, spawnParams);
-	spawnedProjectile->SetLifeSpan(0.05f);
+	spawnedProjectile->SetLifeSpan(0.06f);
+
 }

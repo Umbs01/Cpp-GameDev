@@ -39,7 +39,7 @@ ACProjectile::ACProjectile()
 	{
 		StaticMesh->SetStaticMesh(DefaultMesh.Object);
 		StaticMesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
-		StaticMesh->SetRelativeScale3D(FVector(2.f, 2.f, 2.f));
+		StaticMesh->SetRelativeScale3D(FVector(1.5f, 1.5f, 1.5f));
 	}
 
 	static ConstructorHelpers::FObjectFinder<UParticleSystem> DefaultExplosionEffect(TEXT("/Game/StarterContent/Particles/P_Explosion"));
@@ -51,8 +51,8 @@ ACProjectile::ACProjectile()
 	//Definition for the Projectile Movement Component.
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement"));
 	ProjectileMovementComponent->SetUpdatedComponent(SphereComponent);
-	ProjectileMovementComponent->InitialSpeed = 1000.0f;
-	ProjectileMovementComponent->MaxSpeed = 1000.0f;
+	ProjectileMovementComponent->InitialSpeed = 50.0f;
+	ProjectileMovementComponent->MaxSpeed = 50.0f;
 	ProjectileMovementComponent->bRotationFollowsVelocity = true;
 	ProjectileMovementComponent->ProjectileGravityScale = 0.0f;
 
@@ -90,4 +90,9 @@ void ACProjectile::OnProjectileImpact(UPrimitiveComponent* HitComponent, AActor*
 	}
 
 	Destroy();
+}
+
+float ACProjectile::GetProjectileDamage()
+{
+	return Damage;
 }

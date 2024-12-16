@@ -41,7 +41,7 @@ private:
 	static constexpr float BaseSuperProgress = 0.0f;
 	static constexpr float MaxSuperProgress = 1000.0f;
 	float CurrentSuperProgress = BaseSuperProgress;
-	float SuperRecuperationFactor = 0.25f; // Rate at which super is recharged
+	float SuperRecuperationFactor = 1.f; // Rate at which super is recharged
 
 public:
 	// Default Class constructor
@@ -117,6 +117,10 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Player|Super")
 	float GetSuperRecuperationFactor();
 
+	//Update Super Progress
+	UFUNCTION(BlueprintCallable, Category = "Player|Super")
+	void UpdateSuperProgress();
+
 	// Set the player's recuperation factor
 	UFUNCTION(BlueprintCallable, Category = "Player|Super")
 	void SetSuperRecuperationFactor(float NewRecupertaionFactor);
@@ -136,6 +140,10 @@ public:
 	// Return the player's current charges
 	UFUNCTION(BlueprintPure, Category = "Player|Damage")
 	float GetCurrentCharges();
+
+	// Update the player's charges
+	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
+	void UpdateChargesProgress();
 
 	// Called when aiming & spawning in an AimGuide AActor
 	UFUNCTION(BlueprintCallable, Category = "Player|Damage")
